@@ -77,6 +77,8 @@
 </section>
 
 <style lang="scss">
+  @import '../styles/variables.scss';
+
 	p {
 		margin-bottom: 0.5rem;
 	}
@@ -118,4 +120,10 @@
       margin-bottom: 0.25rem;
     }
 	}
+
+  @media screen and (max-width: $breakpoint-sm) {
+    .intro, .experience {
+      margin: 2rem;
+    }
+  }
 </style>
