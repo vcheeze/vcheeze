@@ -161,10 +161,16 @@
 		margin: 10rem 10rem 6rem 10rem;
 		max-width: 768px;
 		& > h2 {
-			margin-bottom: 1rem;
+			margin-bottom: 2rem;
 		}
 		&Item {
-			margin: 2rem 0;
+			margin-bottom: 4rem;
+			&::before {
+				content: '';
+				display: block;
+				height: 1rem;
+				border-top: 2px solid #333333;
+			}
 			&-title {
 				margin-bottom: 0.5rem;
 			}
