@@ -3,7 +3,7 @@
 </script>
 
 <div class="content">
-  <slot></slot>
+  <slot />
 </div>
 
 <style lang="scss">
@@ -11,6 +11,14 @@
 
   .content {
     padding: 6rem;
+    margin: 0 auto;
+    max-width: 1600px;
+  }
+
+  @media screen and (max-width: $breakpoint-xxl) {
+    .content {
+      max-width: 1380px;
+    }
   }
 
   @media screen and (max-width: $breakpoint-sm) {
