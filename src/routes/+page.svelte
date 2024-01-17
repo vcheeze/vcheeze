@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
-  import { inview } from 'svelte-inview';
-  import type { Options } from 'svelte-inview';
+  // import { inview } from 'svelte-inview';
+  // import type { Options } from 'svelte-inview';
   // import Collapsible from './Collapsible.svelte';
 
   let visible = false;
@@ -10,17 +10,17 @@
     visible = true;
   });
 
-  let isInView: boolean;
+  // let isInView: boolean;
   // let scrollDirection: Direction | undefined;
-  const options: Options = {
-    rootMargin: '-40%',
-    unobserveOnEnter: true
-  };
+  // const options: Options = {
+  //   rootMargin: '-40%',
+  //   unobserveOnEnter: true
+  // };
 
-  const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {
-    isInView = detail.inView;
-    // scrollDirection = detail.scrollDirection.vertical;
-  };
+  // const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {
+  //   isInView = detail.inView;
+  //   // scrollDirection = detail.scrollDirection.vertical;
+  // };
 </script>
 
 {#if visible}
@@ -93,8 +93,8 @@
         </p>
         <h5>Technologies Used</h5>
         <ul>
-          <li>Frameworks/Libraries: .NET, C#, Dynamics 365, PowerSurveyPlus</li>
-          <li>Tools: Visual Studio, Azure DevOps</li>
+          <li><strong>Frameworks/Libraries</strong>: .NET, C#, Dynamics 365, PowerSurveyPlus</li>
+          <li><strong>Tools</strong>: Visual Studio, Azure DevOps</li>
         </ul>
       </div>
       <div class="project">
@@ -119,45 +119,41 @@
         <h5>Technologies Used</h5>
         <ul>
           <li>
-            Frameworks/Libraries: Vue, Vuetify, Matomo, SCSS, .NET Framework, C#, Aspose.Slides
+            <strong>Frameworks/Libraries</strong>: Vue, Vuetify, Matomo, SCSS, .NET Framework, C#,
+            Aspose.Slides
           </li>
-          <li>Tools: Git, Azure DevOps, IIS</li>
+          <li><strong>Tools</strong>: Git, Azure DevOps, IIS</li>
         </ul>
       </div>
     </div>
-    <div use:inview={options} on:inview_change={handleChange}>
-      {#if isInView}
-        <div class="experienceItem" in:fade>
-          <h3 class="experienceItem-title">
-            Freelance Architect and Developer @ <a
-              href="https://gopherwoodclinic.org/"
-              target="_blank">Gopher Wood Clinic</a
-            >
-          </h3>
-          <p class="experienceItem-subTitle">January 2020 - Present | Remote</p>
-          <h5>My Role</h5>
-          <p>
-            I designed, architected, and built the website for Gopher Wood Clinic in Hsinchu,
-            Taiwan. This is my first fully remote freelance project that I have built from start to
-            finish, handling everything from design, solution and software architecture, software
-            development, devOps, and hosting.
-          </p>
-          <p>
-            The first iteration of the app was built on Svelte and Sapper, and when it was clear
-            that the Svelte team was moving away from Sapper to build SvelteKit, I rewrote the
-            entire app with Remix and React.
-          </p>
-          <h5>Technologies Used</h5>
-          <ul>
-            <li>
-              Frameworks/Libraries: React, Remix, TailwindCSS, TypeScript, Node.js, Svelte, Sapper,
-              Tachyons, Rollup, Keycloak, Nginx, PM2
-            </li>
-            <li><strong>Database</strong>: CockroachDB, MariaDB</li>
-            <li>Tools: Git, GitHub, Fly.io, Hostinger VPS, Docker</li>
-          </ul>
-        </div>
-      {/if}
+    <div class="experienceItem" in:fade>
+      <h3 class="experienceItem-title">
+        Freelance Architect and Developer @ <a href="https://gopherwoodclinic.org/" target="_blank"
+          >Gopher Wood Clinic</a
+        >
+      </h3>
+      <p class="experienceItem-subTitle">January 2020 - Present | Remote</p>
+      <h5>My Role</h5>
+      <p>
+        I designed, architected, and built the website for Gopher Wood Clinic in Hsinchu, Taiwan.
+        This is my first fully remote freelance project that I have built from start to finish,
+        handling everything from design, solution and software architecture, software development,
+        devOps, and hosting.
+      </p>
+      <p>
+        The first iteration of the app was built on Svelte and Sapper, and when it was clear that
+        the Svelte team was moving away from Sapper to build SvelteKit, I rewrote the entire app
+        with Remix and React.
+      </p>
+      <h5>Technologies Used</h5>
+      <ul>
+        <li>
+          <strong>Frameworks/Libraries</strong>: React, Remix, TailwindCSS, TypeScript, Node.js,
+          Svelte, Sapper, Tachyons, Rollup, Keycloak, Nginx, PM2
+        </li>
+        <li><strong>Database</strong>: CockroachDB, MariaDB</li>
+        <li><strong>Tools</strong>: Git, GitHub, Fly.io, Hostinger VPS, Docker</li>
+      </ul>
     </div>
     <div class="experienceItem">
       <h3 class="experienceItem-title">Freelance Developer @ Oren IT Solutions</h3>
@@ -177,8 +173,8 @@
         </p>
         <h5>Technologies Used</h5>
         <ul>
-          <li>Frameworks/Libraries: Meteor.js, Node.js</li>
-          <li>Tools: Git, GitLab</li>
+          <li><strong>Frameworks/Libraries</strong>: Meteor.js, Node.js</li>
+          <li><strong>Tools</strong>: Git, GitLab</li>
         </ul>
       </div>
     </div>
