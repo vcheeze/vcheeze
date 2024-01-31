@@ -4,30 +4,110 @@ html {
   font-size: 16px;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
-body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+// colors
+:root {
+  --dark: #242933;
+  --dark-primary: #2e3440;
+  --dark-secondary: #3b4252;
+  --dark-tertiary: #434c5e;
+  --dark-quarternary: #4c566a;
+
+  --light-primary: #eceff4;
+  --light-secondary: #e5e9f0;
+  --light-tertiary: #d8dee9;
+
+  --accent-primary: #88c0d0;
+  --accent-secondary: #81a1c1;
+  --accent-tertiary: #5e81ac;
+  --accent-primary-support: #8fbcbb;
+
+  --error-color: #bf616a;
+  --danger-color: #d08770;
+  --warning-color: #ebcb8b;
+  --success-color: #a3be8c;
+  --special-color: #b48ead;
+}
+
+body[data-theme='light'] {
+  --background-color: var(--light-primary);
+  --color: var(--dark-primary);
+
+  --button-hover-background-color: var(--light-tertiary);
+
+  --card-background-color: var(--light-secondary);
+  --card-hover-background-color: var(--light-tertiary);
+}
+
+body[data-theme='dark'] {
+  --background-color: var(--dark);
+  --color: var(--light-secondary);
+
+  --button-hover-background-color: var(--dark-tertiary);
+
+  --card-background-color: var(--dark-secondary);
+  --card-hover-background-color: var(--dark-tertiary);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--color);
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
   margin: 0;
   padding: 0;
-  color: #333333;
   line-height: 1.5;
 }
 
-body, p, ol, ul {
+body,
+p,
+ol,
+ul {
   font-family: 'Lato', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Arvo', serif;
+  margin: 0.5em 0;
 }
 
-a,
-a:visited {
-  color: #189AB4;
+p {
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: var(--accent-primary);
   transition: color 0.5s;
 }
+a:visited {
+  color: var(--accent-secondary);
+}
 a:hover {
-  color: #333333;
+  color: var(--accent-primary-support);
+}
+
+blockquote {
+  border-left: 2px solid var(--accent-tertiary);
+  padding-left: 1em;
+  margin-left: 0;
 }
