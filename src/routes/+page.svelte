@@ -36,7 +36,7 @@
     <h2>Experience</h2>
     <div class="experienceItem">
       <h3 class="experienceItem-title">
-        Lead Software Engineer @ <a href="https://www.pwc.com/m1/en.html" target="_blank"
+        Lead Software Engineer | Manager @ <a href="https://www.pwc.com/m1/en.html" target="_blank"
           >PwC Middle East</a
         >
       </h3>
@@ -184,9 +184,6 @@
 <style lang="scss">
   @import '../styles/variables.scss';
 
-  p {
-    margin-bottom: 0.5rem;
-  }
   .intro {
     margin: 10rem;
     & > h1 {
@@ -209,7 +206,7 @@
         content: '';
         display: block;
         height: 1rem;
-        border-top: 2px solid #333333;
+        border-top: 2px solid var(--color);
       }
       &-title {
         margin-bottom: 0.5rem;
