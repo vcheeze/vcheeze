@@ -17,7 +17,7 @@
     {#if data.posts && data.posts.length}
       <div class="posts">
         {#each data.posts as post}
-          <Card title={post.title} link={`/blog/${post.slug.current}`} date={post._updatedAt} />
+          <Card title={post.title} link={`/blog/${post.slug.current}`} date={post.publishedAt} />
         {/each}
       </div>
     {:else}

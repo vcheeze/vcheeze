@@ -24,5 +24,10 @@
     font-size: 0.75rem;
     padding: 1rem;
     border-radius: 0.5rem;
+
+    & > code {
+      background-color: unset;
+      padding: unset;
+    }
   }
 </style>
