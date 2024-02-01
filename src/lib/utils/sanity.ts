@@ -23,11 +23,14 @@ export interface Post {
   slug: Slug;
   excerpt?: string;
   mainImage?: ImageAsset;
+  publishedAt: string;
   body: PortableTextBlock[];
 }
 
 export async function getPosts(): Promise<Post[]> {
-  return await client.fetch(`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`);
+  return await client.fetch(
+    `*[_type == "post" && defined(slug.current)] | order(publishedAt desc)`
+  );
 }
 
 export async function getPost(slug: string): Promise<Post> {
