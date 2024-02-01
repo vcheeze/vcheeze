@@ -36,27 +36,29 @@ html {
 
 body[data-theme='light'] {
   --background-color: var(--light-primary);
-  --color: var(--dark-primary);
+  --foreground-color: var(--dark-primary);
 
   --button-hover-background-color: var(--light-tertiary);
 
   --card-background-color: var(--light-secondary);
   --card-hover-background-color: var(--light-tertiary);
+  --card-description-color: var(--dark-quarternary);
 }
 
 body[data-theme='dark'] {
   --background-color: var(--dark);
-  --color: var(--light-secondary);
+  --foreground-color: var(--light-secondary);
 
   --button-hover-background-color: var(--dark-tertiary);
 
   --card-background-color: var(--dark-secondary);
   --card-hover-background-color: var(--dark-tertiary);
+  --card-description-color: var(--light-tertiary);
 }
 
 body {
   background-color: var(--background-color);
-  color: var(--color);
+  color: var(--foreground-color);
 }
 
 body,
@@ -97,7 +99,7 @@ p {
 
 a {
   color: var(--accent-primary);
-  transition: color 0.5s;
+  transition: color 0.5s ease-out;
 }
 a:visited {
   color: var(--accent-secondary);
@@ -110,4 +112,8 @@ blockquote {
   border-left: 2px solid var(--accent-tertiary);
   padding-left: 1em;
   margin-left: 0;
+}
+
+button {
+  all: unset;
 }

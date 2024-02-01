@@ -206,7 +206,7 @@
         content: '';
         display: block;
         height: 1rem;
-        border-top: 2px solid var(--color);
+        border-top: 2px solid var(--foreground-color);
       }
       &-title {
         margin-bottom: 0.5rem;

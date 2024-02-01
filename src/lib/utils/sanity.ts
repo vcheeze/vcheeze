@@ -18,6 +18,7 @@ export const client = createClient({
 export interface Post {
   _type: 'post';
   _createdAt: string;
+  _updatedAt: string;
   title?: string;
   slug: Slug;
   excerpt?: string;
