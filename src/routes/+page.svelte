@@ -185,7 +185,7 @@
   @import '../styles/variables.scss';
 
   .intro {
-    margin: 10rem;
+    margin: 10rem 0;
     & > h1 {
       margin-bottom: 1rem;
     }
@@ -196,7 +196,7 @@
   }
 
   .experience {
-    margin: 10rem 10rem 6rem 10rem;
+    margin: 10rem 0 6rem 0;
     & > h2 {
       margin-bottom: 2rem;
     }
@@ -235,10 +235,10 @@
 
   @media screen and (max-width: $breakpoint-sm) {
     .intro {
-      margin: 4rem 2rem;
+      margin: 4rem 0;
     }
     .experience {
-      margin: 2rem;
+      margin: 2rem 0;
     }
   }
 </style>

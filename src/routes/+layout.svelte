@@ -20,13 +20,13 @@
 
   @media screen and (max-width: $breakpoint-xxl) {
     .content {
-      max-width: 1380px;
+      max-width: 1080px;
     }
   }
 
   @media screen and (max-width: $breakpoint-sm) {
     .content {
-      padding: 2rem;
+      padding: 3rem;
     }
   }
 </style>
