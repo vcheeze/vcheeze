@@ -24,6 +24,7 @@
     font-size: 0.75rem;
     padding: 1rem;
     border-radius: 0.5rem;
+    white-space: pre-wrap;
 
     & > code {
       background-color: unset;
