@@ -11,6 +11,10 @@
   });
 </script>
 
+<svelte:head>
+  <title>Peter Chen - Blog</title>
+</svelte:head>
+
 {#if visible}
   <h1 in:fade>Blog</h1>
   <div in:fade={{ delay: 250 }}>

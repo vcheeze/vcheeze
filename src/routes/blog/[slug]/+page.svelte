@@ -9,6 +9,10 @@
   export let data: PageData;
 </script>
 
+<svelte:head>
+  <title>{data.title}</title>
+</svelte:head>
+
 <a class="back" href="/blog"><ArrowLeftIcon /></a>
 <section class="post">
   {#if data.mainImage}

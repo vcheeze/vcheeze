@@ -23,6 +23,18 @@
   // };
 </script>
 
+<svelte:head>
+  <title>Peter Chen - Home</title>
+  <meta
+    name="description"
+    content="Peter Chen, passionate problem-solver, lead software engineer"
+  />
+  <meta
+    name="keywords"
+    content="Peter, Peter Chen, Chen, software, software engineer, manager, web, web developer, fullstack, frontend"
+  />
+</svelte:head>
+
 {#if visible}
   <div class="intro">
     <h1 in:fade={{ delay: 250, duration: 750 }}>Hello, I'm Peter.</h1>
