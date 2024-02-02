@@ -1,6 +1,10 @@
 # Notes / Docs
 
+Icons courtesy of [Radix](https://www.radix-ui.com/icons).
+
 ### Color Pairings
+
+Currently using the awesome [Nord theme](https://www.nordtheme.com/).
 
 #f7f7f5
 #4d9797, #eabe82
