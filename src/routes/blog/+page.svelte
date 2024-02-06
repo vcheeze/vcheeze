@@ -13,6 +13,7 @@
 
 <svelte:head>
   <title>Peter Chen - Blog</title>
+  <meta name="description" content="Peter Chen's blog" />
 </svelte:head>
 
 {#if visible}
