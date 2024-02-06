@@ -17,6 +17,7 @@
 
 {#if visible}
   <h1 in:fade>Blog</h1>
+  <p>I write short blog posts about my experience as a software engineer.</p>
   <div in:fade={{ delay: 250 }}>
     {#if data.posts && data.posts.length}
       <div class="posts">
