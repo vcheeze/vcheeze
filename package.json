@@ -47,6 +47,7 @@
     "@melt-ui/svelte": "^0.70.0",
     "@sanity/client": "^6.12.3",
     "@sanity/image-url": "^1.0.2",
-    "svelte-inview": "^4.0.2"
+    "svelte-inview": "^4.0.2",
+    "xmlbuilder2": "^3.1.1"
   }
 }

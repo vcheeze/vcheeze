@@ -14,7 +14,7 @@
   <meta name="description" content={data.title} />
 </svelte:head>
 
-<a class="back" href="/blog"><ArrowLeftIcon /></a>
+<a class="back" href="/blog" aria-label="Back"><ArrowLeftIcon /></a>
 <section class="post">
   {#if data.mainImage}
     <img
