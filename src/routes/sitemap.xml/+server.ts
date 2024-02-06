@@ -17,6 +17,10 @@ async function getSitemapXml(): Promise<string> {
     'xmlns:video': 'http://www.google.com/schemas/sitemap-video/1.1'
   });
 
+  // add static pages
+  root.ele('url').ele('loc').txt(`${BLOG_URL}/`).up().up();
+  root.ele('url').ele('loc').txt(`${BLOG_URL}/blog`).up().up();
+
   for await (const post of allPosts) {
     const postUrl = `${BLOG_URL}/blog/${post.slug.current}`;
     root.ele('url').ele('loc').txt(postUrl).up().up();
