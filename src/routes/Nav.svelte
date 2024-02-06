@@ -9,13 +9,13 @@
 
   const routes = [
     {
-      link: '/',
       name: 'home',
+      link: '/',
       icon: HomeIcon
     },
     {
-      link: '/blog',
       name: 'blog',
+      link: '/blog',
       icon: ReaderIcon
     }
   ];
@@ -42,7 +42,7 @@
 </script>
 
 <nav class="side-nav">
-  <button class="side-nav__item" on:click={toggleTheme}>
+  <button class="side-nav__item" aria-label="Theme switch" on:click={toggleTheme}>
     {#if currentTheme === THEMES.LIGHT}
       <MoonIcon />
     {:else}
@@ -54,6 +54,7 @@
       <a
         class="side-nav__item"
         href={route.link}
+        aria-label={route.name}
         in:fly={{ y: -50, delay: 250 * index, duration: 1000 }}
         ><svelte:component this={route.icon} /></a
       >

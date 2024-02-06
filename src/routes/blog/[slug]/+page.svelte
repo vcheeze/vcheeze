@@ -11,6 +11,7 @@
 
 <svelte:head>
   <title>{data.title}</title>
+  <meta name="description" content={data.title} />
 </svelte:head>
 
 <a class="back" href="/blog"><ArrowLeftIcon /></a>
