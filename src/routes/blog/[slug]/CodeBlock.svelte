@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { fade } from 'svelte/transition';
   import type { CustomBlockComponentProps } from '@portabletext/svelte';
   import { codeToHtml } from 'shiki';
 
@@ -15,9 +16,11 @@
   });
 </script>
 
-<div>
-  {@html code}
-</div>
+{#if code}
+  <div in:fade={{ duration: 250 }}>
+    {@html code}
+  </div>
+{/if}
 
 <style>
   :global(.shiki) {

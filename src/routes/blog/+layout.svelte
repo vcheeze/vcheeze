@@ -3,7 +3,7 @@
 
   export let data;
 
-  let duration = 250;
+  const duration = 250;
 </script>
 
 {#key data.url}
