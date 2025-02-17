@@ -1,10 +1,9 @@
 <script lang="ts">
   import { ModeWatcher } from 'mode-watcher';
 
-  import '../app.css';
+  import '../../app.css';
   import Nav from './Nav.svelte';
   // import Footer from './Footer.svelte';
-  import '../app.css';
   interface Props {
     children?: import('svelte').Snippet;
   }
