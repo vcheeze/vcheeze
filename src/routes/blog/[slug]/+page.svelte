@@ -1,12 +1,18 @@
 <script lang="ts">
   import { PortableText } from '@portabletext/svelte';
-  import ArrowLeftIcon from 'virtual:icons/radix-icons/arrowLeft';
+  import ArrowLeftIcon from 'lucide-svelte/icons/arrow-left';
+
   import { formatDate } from '$lib/utils';
   import { urlFor } from '$lib/utils/image';
+
   import CodeBlock from './CodeBlock.svelte';
   import type { PageData } from './$types';
 
-  export let data: PageData;
+  interface Props {
+    data: PageData;
+  }
+
+  let { data }: Props = $props();
 </script>
 
 <svelte:head>
@@ -14,7 +20,7 @@
   <meta name="description" content={data.title} />
 </svelte:head>
 
-<a class="back" href="/blog" aria-label="Back"><ArrowLeftIcon /></a>
+<a class="mb-16 block" href="/blog" aria-label="Back"><ArrowLeftIcon class="h-4 w-4" /></a>
 <section class="post">
   {#if data.mainImage}
     <img
@@ -23,15 +29,17 @@
       alt="Cover image for {data.title}"
     />
   {:else}
-    <div class="post__cover--none" />
+    <div class="post__cover--none"></div>
   {/if}
   <div class="post__container">
-    <h1 class="post__title">{data.title}</h1>
+    <h1 class="mb-4 scroll-m-20 font-serif text-4xl font-extrabold tracking-tight lg:text-5xl">
+      {data.title}
+    </h1>
     <!-- <p class="post__excerpt">{data.excerpt}</p> -->
-    <p class="post__date">
+    <p class="text-sm italic">
       {formatDate(data.publishedAt)}
     </p>
-    <div class="post__content">
+    <div class="post my-6">
       <PortableText
         value={data.body}
         components={{
@@ -45,20 +53,54 @@
 </section>
 
 <style lang="scss">
-  .back {
-    width: fit-content;
-    display: flex;
-    color: var(--foreground-color);
-    &:hover {
-      cursor: pointer;
-      color: var(--accent-primary);
-    }
-  }
-
-  .post {
-    &__date {
-      font-size: 0.9rem;
-      font-style: italic;
+  :global {
+    .post {
+      h3 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+        scroll-margin: 5rem;
+        margin-top: 2rem;
+      }
+      p {
+        line-height: 1.75rem;
+        &:not(:first-child) {
+          margin-top: 1.5rem;
+        }
+      }
+      a {
+        color: var(--color-cyan-11);
+        &:hover {
+          text-decoration: underline;
+        }
+        &:visited {
+          text-decoration: underline;
+        }
+      }
+      blockquote {
+        padding-left: 1.5rem;
+        margin-top: 1.5rem;
+        border-left-width: 2px;
+        font-style: italic;
+      }
+      pre {
+        margin-top: 0.5rem;
+      }
+      code:not(pre code) {
+        border-radius: 0.25rem;
+        padding: 0.2rem 0.3rem;
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+        background-color: #3b4252;
+        color: #d8dee9;
+      }
+      ul {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        margin-left: 1.5rem;
+        list-style-type: disc;
+      }
     }
   }
 </style>

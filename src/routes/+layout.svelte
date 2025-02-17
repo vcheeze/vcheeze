@@ -1,32 +1,21 @@
-<script>
+<script lang="ts">
+  import { ModeWatcher } from 'mode-watcher';
+
+  import '../app.css';
   import Nav from './Nav.svelte';
-  import '../styles/global.scss';
+  // import Footer from './Footer.svelte';
+  import '../app.css';
+  interface Props {
+    children?: import('svelte').Snippet;
+  }
+
+  let { children }: Props = $props();
 </script>
 
+<ModeWatcher />
 <Nav />
-
-<div class="content">
-  <slot />
+<div class="container mx-auto p-13">
+  {@render children?.()}
 </div>
 
-<style lang="scss">
-  @import '../styles/variables.scss';
-
-  .content {
-    padding: 6rem;
-    margin: 0 auto;
-    max-width: 1600px;
-  }
-
-  @media screen and (max-width: $breakpoint-xxl) {
-    .content {
-      max-width: 1080px;
-    }
-  }
-
-  @media screen and (max-width: $breakpoint-sm) {
-    .content {
-      padding: 3rem;
-    }
-  }
-</style>
+<!-- <Footer /> -->

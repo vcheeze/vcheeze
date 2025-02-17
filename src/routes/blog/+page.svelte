@@ -1,11 +1,11 @@
-<script>
+<script lang="ts">
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
   import Card from './Card.svelte';
 
-  export let data;
+  let { data } = $props();
 
-  let visible = false;
+  let visible = $state(false);
   onMount(() => {
     visible = true;
   });
@@ -17,11 +17,15 @@
 </svelte:head>
 
 {#if visible}
-  <h1 in:fade>Blog</h1>
-  <p>I write short blog posts about my experience as a software engineer.</p>
+  <h1 in:fade class="scroll-m-20 font-serif text-4xl font-extrabold tracking-tight lg:text-5xl">
+    Blog
+  </h1>
+  <p class="leading-7 [&:not(:first-child)]:mt-6">
+    I write short blog posts about my experience as a software engineer.
+  </p>
   <div in:fade={{ delay: 250 }}>
     {#if data.posts && data.posts.length}
-      <div class="posts">
+      <div class="mt-12 grid gap-4 md:grid-cols-3">
         {#each data.posts as post}
           <Card title={post.title} link={`/blog/${post.slug.current}`} date={post.publishedAt} />
         {/each}
@@ -31,20 +35,3 @@
     {/if}
   </div>
 {/if}
-
-<style lang="scss">
-  @import '../../styles/variables.scss';
-
-  .posts {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 2rem;
-    margin-top: 4rem;
-  }
-
-  @media screen and (max-width: $breakpoint-sm) {
-    .posts {
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
-  }
-</style>
