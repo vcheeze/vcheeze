@@ -3,7 +3,11 @@
 </script>
 
 <svelte:head>
-  <title>CV - Peter Chen</title>
+  <title>Peter Chen for Pleo!</title>
+  <meta
+    name="description"
+    content="Hire Peter for your Senior Frontend Engineer role! Herer's why he'd be a good fit :)"
+  />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
