@@ -1,6 +1,6 @@
 <script lang="ts">
   import { ModeWatcher } from 'mode-watcher';
-
+  import { ScrollArea } from '$lib/components/ui/scroll-area';
   import '../../app.css';
   import Nav from './Nav.svelte';
   // import Footer from './Footer.svelte';
@@ -13,8 +13,8 @@
 
 <ModeWatcher />
 <Nav />
-<div class="container mx-auto p-13">
-  {@render children?.()}
-</div>
 
+<ScrollArea class="container mx-auto min-h-screen p-13">
+  {@render children?.()}
+</ScrollArea>
 <!-- <Footer /> -->

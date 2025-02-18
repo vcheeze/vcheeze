@@ -18,13 +18,13 @@
   ];
 </script>
 
-<div class="p-20">
+<div class="md:p-20">
   <h1 class="mb-6 scroll-m-20 font-serif text-4xl font-extrabold tracking-tight lg:text-5xl">
     Contact Me
   </h1>
 
-  <div class="flex gap-12">
-    <img src="/images/profile.png" alt="Peter Chen's Profile" class="max-w-xs" />
+  <div class="flex gap-12 max-sm:flex-col">
+    <img src="/images/profile.png" alt="Peter Chen's Profile" class="w-full md:max-w-xs" />
 
     <div class="space-y-4">
       {#each routes as route}
