@@ -8,7 +8,11 @@
     forceVisible: true
   });
 
-  export let triggerLabel: string;
+  interface Props {
+    triggerLabel: string;
+  }
+
+  let { triggerLabel }: Props = $props();
 </script>
 
 <div use:melt={$root}>

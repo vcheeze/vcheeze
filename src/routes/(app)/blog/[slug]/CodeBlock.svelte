@@ -4,10 +4,15 @@
   import type { CustomBlockComponentProps } from '@portabletext/svelte';
   import { codeToHtml } from 'shiki';
 
-  // Property custom blocks receive from @portabletext/svelte when redered
-  export let portableText: CustomBlockComponentProps<{ code: string }>;
+  
+  interface Props {
+    // Property custom blocks receive from @portabletext/svelte when redered
+    portableText: CustomBlockComponentProps<{ code: string }>;
+  }
 
-  let code: any;
+  let { portableText }: Props = $props();
+
+  let code: any = $state();
   onMount(async () => {
     code = await codeToHtml(portableText.value.code, {
       lang: 'javascript',
