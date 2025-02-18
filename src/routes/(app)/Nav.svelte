@@ -42,7 +42,9 @@
   });
 </script>
 
-<nav class="fixed top-0 right-0 flex flex-col items-center gap-2 px-2 py-4 max-sm:px-3 max-sm:py-2">
+<nav
+  class="fixed top-0 right-0 z-10 flex flex-col items-center gap-2 px-2 py-4 max-sm:px-3 max-sm:py-2"
+>
   <Button variant="ghost" size="icon" onclick={toggleMode}>
     <SunIcon class="h-4 w-4 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
     <MoonIcon

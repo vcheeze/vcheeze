@@ -2,7 +2,7 @@
 
 import { create } from 'xmlbuilder2';
 import { getPosts } from '$lib/utils/sanity';
-import { BLOG_URL } from '$lib/constants';
+import { APP_URL } from '$lib/constants';
 
 export const prerender = true;
 
@@ -18,12 +18,14 @@ async function getSitemapXml(): Promise<string> {
   });
 
   // add static pages
-  root.ele('url').ele('loc').txt(`${BLOG_URL}/`).up().up();
-  root.ele('url').ele('loc').txt(`${BLOG_URL}/blog`).up().up();
-  root.ele('url').ele('loc').txt(`${BLOG_URL}/pleo`).up().up();
+  root.ele('url').ele('loc').txt(`${APP_URL}/`).up().up();
+  root.ele('url').ele('loc').txt(`${APP_URL}/blog`).up().up();
+  root.ele('url').ele('loc').txt(`${APP_URL}/contact`).up().up();
+  // CV pages
+  root.ele('url').ele('loc').txt(`${APP_URL}/pleo`).up().up();
 
   for await (const post of allPosts) {
-    const postUrl = `${BLOG_URL}/blog/${post.slug.current}`;
+    const postUrl = `${APP_URL}/blog/${post.slug.current}`;
     root.ele('url').ele('loc').txt(postUrl).up().up();
   }
 
