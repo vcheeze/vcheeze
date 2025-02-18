@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
 
-  let visible = false;
+  let visible = $state(false);
   onMount(() => {
     visible = true;
   });
@@ -36,7 +36,7 @@
 
   <section class="py-40 md:py-24" in:fade={{ delay: 1500, duration: 750 }}>
     <h2
-      class="border-border mb-8 scroll-m-20 border-b pb-2 font-serif text-3xl font-semibold tracking-tight transition-colors first:mt-0"
+      class="mb-8 scroll-m-20 font-serif text-3xl font-semibold tracking-tight transition-colors first:mt-0"
     >
       Experience
     </h2>
