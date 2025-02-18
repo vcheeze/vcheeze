@@ -20,6 +20,7 @@ async function getSitemapXml(): Promise<string> {
   // add static pages
   root.ele('url').ele('loc').txt(`${BLOG_URL}/`).up().up();
   root.ele('url').ele('loc').txt(`${BLOG_URL}/blog`).up().up();
+  root.ele('url').ele('loc').txt(`${BLOG_URL}/pleo`).up().up();
 
   for await (const post of allPosts) {
     const postUrl = `${BLOG_URL}/blog/${post.slug.current}`;
