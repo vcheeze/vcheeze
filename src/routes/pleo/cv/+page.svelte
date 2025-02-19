@@ -1,11 +1,13 @@
 <script lang="ts">
   import { fly } from 'svelte/transition';
+  import ArrowRight from 'lucide-svelte/icons/arrow-right';
+  import Globe from 'lucide-svelte/icons/globe';
   import { animate, hover } from 'motion';
   import { onMount } from 'svelte';
 
   let visible = $state(false);
 
-  function motionHover(node: HTMLImageElement) {
+  function profileHover(node: HTMLImageElement) {
     const cleanup = hover(node, () => {
       animate(
         node,
@@ -14,7 +16,32 @@
       );
 
       return () => {
-        animate(node, { scale: 1 }, { duration: 0.8 });
+        animate(node, { scale: 1 }, { duration: 0.8, ease: 'easeInOut' });
+      };
+    });
+
+    return {
+      destroy() {
+        cleanup();
+      }
+    };
+  }
+
+  function linkHover(node: HTMLAnchorElement) {
+    const child = node.querySelector('svg');
+    const cleanup = hover(node, () => {
+      animate(
+        child || node,
+        { scale: 1, rotate: [0, 360, 360] },
+        { duration: 0.4, ease: 'easeInOut' }
+      );
+
+      return () => {
+        animate(
+          child || node,
+          { scale: 1, rotate: [360, 360, 0] },
+          { duration: 0.4, ease: 'easeInOut' }
+        );
       };
     });
 
@@ -82,9 +109,12 @@
   </style>
 </svelte:head>
 
-<!-- <div class="h-12 bg-[#f5f5f5]"></div> -->
-<!-- container mx-auto my-12  -->
-<div class="container mx-auto my-10 flex gap-10">
+<a
+  href="/pleo/cover-letter"
+  class="fixed right-4 bottom-4 flex items-center gap-1 rounded-[25px] bg-[#222222] px-[14px] py-[7px] font-mono text-[13px] text-white no-underline! hover:bg-black! print:hidden"
+  use:linkHover>Read my Cover Letter <ArrowRight class="h-[13px] w-[13px]" /></a
+>
+<div class="flex gap-10 not-print:container not-print:mx-auto not-print:my-10">
   {#if visible}
     <div
       class="w-[265px] flex-none font-mono text-[16px]"
@@ -94,7 +124,7 @@
         src="/images/profile.png"
         class="h-[265px] w-[265px]"
         alt="Peter Chen's Profile Pic"
-        use:motionHover
+        use:profileHover
       />
       <div class="border-b pb-6">
         <p class="mt-6 mb-4 text-[18px]">I'm good at</p>
@@ -157,12 +187,12 @@
         class="relative space-y-5 rounded-2xl bg-[#d9f2e1] p-[25px]"
         in:fly={{ duration: 800, delay: 400, y: -100 }}
       >
+        <a
+          href="https://vcheeze.pages.dev/pleo/cv"
+          class="text-muted-foreground absolute top-[25px] right-[25px] hidden items-center gap-1 text-xs print:flex"
+          ><Globe class="h-3 w-3" />Read the web version here</a
+        >
         <h1>Peter Chen</h1>
-        <!-- <a
-        href="https://vcheeze.pages.dev/pleo"
-        class="text-muted-foreground absolute top-[25px] right-[25px] flex items-center gap-1 text-xs"
-        ><Globe class="h-3 w-3" />Read the web version here</a
-      > -->
         <p class="text-[32px] text-[#333333]">Lead Frontend Engineer</p>
         <div class="flex gap-5">
           <p class="flex items-center gap-1 text-[18px] text-[#333333]">
@@ -296,17 +326,16 @@
               users to easily submit video, audio, and text feedback
             </li>
           </ul>
-          <p class="space-x-2 font-mono text-[13px] leading-[14px]">
-            <span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">React</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Redux</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Storybook</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Jest</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Node.js</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]"
-              >TypeScript</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">GraphQL</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">MariaDB</span>
-          </p>
+          <div class="flex flex-wrap gap-2 font-mono text-[13px] leading-[14px]">
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">React</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Redux</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Storybook</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Jest</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Node.js</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">TypeScript</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">GraphQL</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">MariaDB</div>
+          </div>
           <h4 class="mt-12 scroll-m-20 text-2xl font-semibold tracking-tight">
             <a href="https://www.pif.gov.sa/" target="_blank">PIF Partners Hub</a>
           </h4>
@@ -328,18 +357,17 @@
               and Zeroheight for showcase and documentation
             </li>
           </ul>
-          <p class="space-x-2 font-mono text-[13px] leading-[14px]">
-            <span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Next.js</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Craft.js</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Zustand</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Shadcn UI</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Storybook</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]"
-              >Tailwind CSS</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]"
-              >Zeroheight</span
-            >
-          </p>
+          <div class="flex flex-wrap gap-2 font-mono text-[13px] leading-[14px]">
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Next.js</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Craft.js</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Zustand</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Shadcn UI</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Storybook</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">
+              Tailwind CSS
+            </div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Zeroheight</div>
+          </div>
           <h4 class="mt-12 scroll-m-20 text-2xl font-semibold tracking-tight">PwC</h4>
           <ul class="my-6 ml-6 list-disc [&>li]:mt-2">
             <li>
@@ -352,16 +380,18 @@
               used by 3000+ consultants, reducing manual effort and ensuring brand consistency.
             </li>
           </ul>
-          <p class="space-x-2 font-mono text-[13px] leading-[14px]">
-            <span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Vue.js</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]"
-              >Aspose.Slides</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]"
-              >Microsoft Dynamics 365</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]"
-              >.NET Framework</span
-            >
-          </p>
+          <div class="flex flex-wrap gap-2 font-mono text-[13px] leading-[14px]">
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Vue.js</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">
+              Aspose.Slides
+            </div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">
+              Microsoft Dynamics 365
+            </div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">
+              .NET Framework
+            </div>
+          </div>
         </div>
         <div>
           <h3 class="mt-12">
@@ -390,16 +420,17 @@
             </li>
             <li>Increased SEO rankings to top 5 on Google search results</li>
           </ul>
-          <p class="space-x-2 font-mono text-[13px] leading-[14px]">
-            <span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Remix</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Radix UI</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]"
-              >Tailwind CSS</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Fly.io</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]"
-              >Google Analytics</span
-            >
-          </p>
+          <div class="flex flex-wrap gap-2 font-mono text-[13px] leading-[14px]">
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Remix</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Radix UI</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">
+              Tailwind CSS
+            </div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Fly.io</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">
+              Google Analytics
+            </div>
+          </div>
         </div>
         <h2 class="mt-12" id="personal-projects">Personal Projects</h2>
         <div>
@@ -425,13 +456,13 @@
               visualizations and stats
             </li>
           </ul>
-          <p class="space-x-2 font-mono text-[13px] leading-[14px]">
-            <span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Next.js</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Shadcn UI</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Recharts</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Python 3</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">FastAPI</span>
-          </p>
+          <div class="flex flex-wrap gap-2 font-mono text-[13px] leading-[14px]">
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Next.js</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Shadcn UI</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Recharts</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Python 3</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">FastAPI</div>
+          </div>
         </div>
         <div>
           <h3 class="mt-12">
@@ -446,22 +477,23 @@
             <li>Insights into periodic trends with a grouped view of monthly transactions</li>
             <li>Visual reports on spending breakdowns and trends for better financial planning</li>
           </ul>
-          <p class="space-x-2 font-mono text-[13px] leading-[14px]">
-            <span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">SvelteKit</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]"
-              >Shadcn Svelte</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]"
-              >Lucia Auth</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]"
-              >Drizzle ORM</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]"
-              >Xata PostgreSQL</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]"
-              >Cloudflare Pages</span
-            ><span class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]"
-              >Cloudflare Analytics</span
-            >
-          </p>
+          <div class="flex flex-wrap gap-2 font-mono text-[13px] leading-[14px]">
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">SvelteKit</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">
+              Shadcn Svelte
+            </div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Lucia Auth</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">Drizzle ORM</div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">
+              Xata PostgreSQL
+            </div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">
+              Cloudflare Pages
+            </div>
+            <div class="rounded-[25px] border border-[#333333] px-[14px] py-[7px]">
+              Cloudflare Analytics
+            </div>
+          </div>
         </div>
       </div>
     </div>
