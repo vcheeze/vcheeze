@@ -1,9 +1,9 @@
 import { dev } from '$app/environment';
 
-export let BLOG_URL: string;
+export let APP_URL: string;
 
 if (dev) {
-  BLOG_URL = 'http://localhost:5173';
+  APP_URL = 'http://localhost:5173';
 } else {
-  BLOG_URL = 'https://vcheeze.pages.dev';
+  APP_URL = 'https://vcheeze.pages.dev';
 }
