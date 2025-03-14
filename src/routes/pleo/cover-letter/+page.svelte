@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
+
   import ArrowRight from 'lucide-svelte/icons/arrow-right';
   import Earth from 'lucide-svelte/icons/earth';
   import Globe from 'lucide-svelte/icons/globe';
@@ -6,7 +8,8 @@
   import Rocket from 'lucide-svelte/icons/rocket';
   import Wrench from 'lucide-svelte/icons/wrench';
   import { animate, hover } from 'motion';
-  import { onMount } from 'svelte';
+
+  import * as HoverCard from '$lib/components/ui/hover-card';
 
   let visible = $state(false);
 
@@ -41,55 +44,7 @@
 </script>
 
 <svelte:head>
-  <title>Peter Chen for Pleo!</title>
-  <meta
-    name="description"
-    content="Hire Peter for your Senior Frontend Engineer role! Herer's why he'd be a good fit :)"
-  />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
-    body {
-      font-family:
-        Inter,
-        var(
-          --default-font-family,
-          ui-sans-serif,
-          system-ui,
-          sans-serif,
-          'Apple Color Emoji',
-          'Segoe UI Emoji',
-          'Segoe UI Symbol',
-          'Noto Color Emoji'
-        );
-      font-size: 23px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    h1 {
-      font-size: 64px;
-      line-height: 1.1;
-    }
-    h2 {
-      font-size: 45px;
-    }
-    h3 {
-      font-size: 32px;
-    }
-    a {
-      text-decoration: underline;
-    }
-    a:hover {
-      background-color: #ffdee2;
-    }
-
-    .font-mono {
-      font-family: 'Space Mono', monospace;
-    }
-    .section p {
-      margin-bottom: 23px;
-    }
-
     .highlight-text {
       background: linear-gradient(90deg, #ffdee2 50%, transparent 50%);
       background-size: 200% 100%;
@@ -121,7 +76,13 @@
       ><Globe class="h-3 w-3" />Read the web version here</a
     >
     <h1>
-      On the Art of Frontend Engineering - A Note from <span class="highlight-text">da Vinci </span>
+      On the Art of Frontend Engineering - A Note from <HoverCard.Root
+        ><HoverCard.Trigger class="no-underline! hover:cursor-pointer"
+          ><span class="highlight-text">da Vinci</span></HoverCard.Trigger
+        ><HoverCard.Content class="w-80"
+          ><img src="/images/leodavinci.jpg" alt="It's Leo" /></HoverCard.Content
+        ></HoverCard.Root
+      >
     </h1>
     <p class="[&:not(:first-child)]:mt-6">To the visionaries of Pleo,</p>
     <p class="[&:not(:first-child)]:mt-6">
