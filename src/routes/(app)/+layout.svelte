@@ -14,8 +14,10 @@
 <Nav />
 
 <ScrollArea
-  class="bg-slatep3a-1 text-slatep3a-12 dark:bg-slatedark-2 dark:text-slatedark-12 container mx-auto min-h-screen p-13"
+  class="bg-slatep3a-1 text-slatep3a-12 dark:bg-slatedark-2 dark:text-slatedark-12 h-screen p-13"
 >
-  {@render children?.()}
+  <div class="container mx-auto">
+    {@render children?.()}
+  </div>
 </ScrollArea>
 <!-- <Footer /> -->
