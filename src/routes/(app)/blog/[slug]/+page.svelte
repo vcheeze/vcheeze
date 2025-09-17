@@ -55,6 +55,18 @@
 <style lang="scss">
   :global {
     .post {
+      h2 {
+        scroll-margin: 5rem;
+        font-family: Arvo, ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+        font-size: 1.875rem;
+        line-height: calc(2.25 / 1.875);
+        font-weight: 600;
+        letter-spacing: -0.025em;
+        margin-top: 2rem;
+        &:first {
+          margin-top: 0;
+        }
+      }
       h3 {
         font-size: 1.5rem;
         line-height: 2rem;
@@ -95,11 +107,20 @@
         background-color: #3b4252;
         color: #d8dee9;
       }
-      ul {
+      ul,
+      ol {
         margin-top: 1.5rem;
         margin-bottom: 1.5rem;
         margin-left: 1.5rem;
+        & > li {
+          margin-top: 0.5rem;
+        }
+      }
+      ul {
         list-style-type: disc;
+      }
+      ol {
+        list-style-type: decimal;
       }
     }
   }
