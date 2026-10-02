@@ -1,0 +1,197 @@
+{
+	"title": "Choose the visual world",
+	"question": "The roll assigned Spec Sheet. Keep it, take an alternate, or re-roll.",
+	"options": [
+		{
+			"id": "assigned",
+			"label": "Spec Sheet",
+			"kicker": "THE ROLL",
+			"lineage": "engineering RFCs and technical specifications",
+			"thesis": "Peter’s career reads as a living RFC: precise sections, quiet claims, email as the action line.",
+			"palette": ["#F1EDE4", "#292F29", "#0E4D4E"],
+			"materials": ["specification paper", "hairline rules", "numbered section markers"],
+			"viewport": "Full-bleed paper sheet: Peter Chen at decisive scale, one-line hands-on thesis, email as the only primary action, then experience as numbered sections.",
+			"risk": "Can feel corporate-doc if section rhythm stays flat.",
+			"raised": [
+				{
+					"from": "challenger-ikebana",
+					"raise": "Ma between sections: charged empty space earns the denser proof blocks."
+				},
+				{
+					"from": "challenger-cloud",
+					"raise": "Accent stays on edges and links; body text stays quiet and muted."
+				},
+				{
+					"from": "challenger-particle",
+					"raise": "Focus one project at a time; siblings dim until selected."
+				},
+				{
+					"from": "challenger-webgl",
+					"raise": "First viewport is one continuous document field, not a header over content."
+				},
+				{
+					"from": "challenger-scher",
+					"raise": "Identity line holds architectural scale without all-caps shout."
+				},
+				{
+					"from": "challenger-manifesto",
+					"raise": "Unequal section weight: recent ownership reads heavier than older roles."
+				}
+			],
+			"comp": ".impeccable/mocks/decision/assigned.webp",
+			"wireframe": {
+				"cols": 12,
+				"rows": 10,
+				"regions": [
+					{ "label": "name", "x": 1, "y": 1, "w": 7, "h": 1, "accent": true },
+					{ "label": "thesis", "x": 1, "y": 2, "w": 8, "h": 1 },
+					{ "label": "email", "x": 1, "y": 3, "w": 4, "h": 1, "accent": true },
+					{ "label": "§ experience", "x": 1, "y": 5, "w": 10, "h": 4 }
+				]
+			}
+		},
+		{
+			"id": "model-pick",
+			"label": "Wall Label",
+			"kicker": "IMPECCABLE’S PICK",
+			"lineage": "museum object captions and wall labels",
+			"thesis": "The work leads as the artifact; Peter’s name and role sit as the quiet caption.",
+			"palette": ["#F1EDE4", "#292F29", "#0E4D4E"],
+			"materials": ["caption rail", "generous margin", "object-first hierarchy"],
+			"viewport": "A featured project plate dominates the first viewport; name, hands-on line, and email sit as a caption strip.",
+			"risk": "Also the direction most portfolio runs land on: familiar museum calm.",
+			"comp": ".impeccable/mocks/decision/model-pick.webp",
+			"wireframe": {
+				"cols": 12,
+				"rows": 10,
+				"regions": [
+					{ "label": "featured work", "x": 1, "y": 1, "w": 10, "h": 5, "accent": true },
+					{ "label": "caption: name", "x": 1, "y": 7, "w": 5, "h": 1 },
+					{ "label": "caption: thesis", "x": 1, "y": 8, "w": 7, "h": 1 },
+					{ "label": "email", "x": 1, "y": 9, "w": 4, "h": 1, "accent": true }
+				]
+			}
+		},
+		{
+			"id": "challenger-ikebana",
+			"label": "Ikebana Ma",
+			"verdict": "competitive",
+			"lineage": "tokonoma alcove with ikebana arrangement",
+			"thesis": "Career as an asymmetric arrangement: three proof stems, charged empty plaster as ma.",
+			"palette": ["#F1EDE4", "#292F29", "#0E4D4E"],
+			"materials": ["pale plaster ground", "asymmetric triangle", "active emptiness"],
+			"viewport": "Off-center name; three project lines forming a triangle; large quiet field left empty on purpose.",
+			"case": "Holds clarity for a minimalist brief; hiring managers may not identify with the alcove ritual.",
+			"risk": "Emptiness can read unfinished if the three stems lack weight.",
+			"comp": ".impeccable/mocks/decision/challenger-ikebana.webp",
+			"hero": "https://impeccable.style/worlds/cards/growth-metamorphosis-branching-ikebana-ma-arrangement-hero.webp",
+			"board": "https://impeccable.style/worlds/cards/growth-metamorphosis-branching-ikebana-ma-arrangement.webp",
+			"wireframe": {
+				"cols": 12,
+				"rows": 10,
+				"regions": [
+					{ "label": "ma", "x": 7, "y": 1, "w": 4, "h": 4 },
+					{ "label": "name", "x": 1, "y": 2, "w": 5, "h": 1, "accent": true },
+					{ "label": "stem 1", "x": 1, "y": 4, "w": 5, "h": 1 },
+					{ "label": "stem 2", "x": 2, "y": 6, "w": 5, "h": 1 },
+					{ "label": "stem 3", "x": 1, "y": 8, "w": 6, "h": 1 },
+					{ "label": "email", "x": 1, "y": 9, "w": 4, "h": 1, "accent": true }
+				]
+			}
+		},
+		{
+			"id": "challenger-cloud",
+			"label": "Cloud Edge",
+			"verdict": "declined",
+			"lineage": "iridescent cloud edge diffraction",
+			"thesis": "Quiet achromatic field with color only at a hairline fringe.",
+			"palette": ["#F1EDE4", "#292F29", "#0E4D4E"],
+			"materials": ["wide margins", "hairline accent band"],
+			"viewport": "Wide quiet margins; spectral edge as the only color event.",
+			"case": "Loses identification and clarity once pastel fringe fights the pinned three-color system.",
+			"kept": "Accent confined to edges and links; body text stays quiet.",
+			"risk": "Decorative fringe without professional signal.",
+			"hero": "https://impeccable.style/worlds/cards/clouds-storms-auroras-iridescent-cloud-edge-hero.webp"
+		},
+		{
+			"id": "challenger-particle",
+			"label": "Event Display",
+			"verdict": "declined",
+			"lineage": "particle detector event display",
+			"thesis": "Career as one frozen collision: projects as tracks through detector rings.",
+			"palette": ["#F1EDE4", "#292F29", "#0E4D4E"],
+			"materials": ["concentric rings", "track isolation"],
+			"viewport": "Concentric career rings with project tracks radiating out.",
+			"case": "Loses both axes: obscure metaphor for hiring, fights simple structure.",
+			"kept": "Focus one project at a time; siblings dim.",
+			"risk": "Science visualization costume over a résumé.",
+			"hero": "https://impeccable.style/worlds/cards/scientific-notation-particle-detector-event-display-hero.webp"
+		},
+		{
+			"id": "challenger-webgl",
+			"label": "Shader Portal",
+			"verdict": "declined",
+			"lineage": "experiential studio WebGL portal",
+			"thesis": "Full-bleed living shader with thin type floating over pixels.",
+			"palette": ["#F1EDE4", "#292F29", "#0E4D4E"],
+			"materials": ["fullscreen field", "thin overlay type"],
+			"viewport": "GPU scene fills the screen; identity as thin overlay.",
+			"case": "Loses both axes against a simple, proof-led portfolio brief.",
+			"kept": "First viewport as one continuous environmental field.",
+			"risk": "Studio-portfolio spectacle the brief refuses.",
+			"hero": "https://impeccable.style/worlds/cards/webgl-shader-portal-hero.webp"
+		},
+		{
+			"id": "challenger-scher",
+			"label": "Street Poster",
+			"verdict": "declined",
+			"lineage": "Paula Scher street typography",
+			"thesis": "Architectural wood-type shout cropped by the frame.",
+			"palette": ["#F1EDE4", "#292F29", "#0E4D4E"],
+			"materials": ["diagonal baselines", "cropped caps"],
+			"viewport": "Oversized name cropped by the edge.",
+			"case": "Conflicts with the brief’s avoid-all-caps and quiet voice.",
+			"kept": "Decisive identity-line scale without the shout.",
+			"risk": "All-caps noise against an elegant brief.",
+			"hero": "https://impeccable.style/worlds/cards/brand-identity-canon-scher-street-typography-hero.webp"
+		},
+		{
+			"id": "challenger-manifesto",
+			"label": "Blast Page",
+			"verdict": "declined",
+			"lineage": "1914 wood-type manifesto magazine",
+			"thesis": "Stacked typographic slabs and hard rules as the only hit.",
+			"palette": ["#F1EDE4", "#292F29", "#0E4D4E"],
+			"materials": ["unequal slabs", "thick rules"],
+			"viewport": "Section titles as unequal type slabs, no imagery.",
+			"case": "Loses identification for a hiring visitor seeking calm signal.",
+			"kept": "Unequal section weight hierarchy.",
+			"risk": "Manifesto energy over muted profile.",
+			"hero": "https://impeccable.style/worlds/cards/design-canon-blast-manifesto-page-hero.webp"
+		}
+	],
+	"reroll": { "registers": ["safer", "bolder"] },
+	"buildPath": { "value": "code", "toggle": true },
+	"canon": true,
+	"canonCard": {
+		"label": "The category standard",
+		"thesis": "Centered name, role line, project cards, and social row — executed at full craft.",
+		"palette": ["#F1EDE4", "#292F29", "#0E4D4E"],
+		"materials": ["clean grid", "project cards", "social icons"],
+		"viewport": "Hero identity block, then a three-up project grid, contact in the footer.",
+		"risk": "Indistinguishable from other engineer portfolios by design.",
+		"comp": ".impeccable/mocks/decision/canon.webp",
+		"wireframe": {
+			"cols": 12,
+			"rows": 10,
+			"regions": [
+				{ "label": "name + role", "x": 3, "y": 1, "w": 6, "h": 2, "accent": true },
+				{ "label": "card", "x": 1, "y": 4, "w": 3, "h": 3 },
+				{ "label": "card", "x": 4.5, "y": 4, "w": 3, "h": 3 },
+				{ "label": "card", "x": 8, "y": 4, "w": 3, "h": 3 },
+				{ "label": "links", "x": 4, "y": 8, "w": 4, "h": 1 }
+			]
+		}
+	},
+	"steer": true
+}
