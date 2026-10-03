@@ -2,6 +2,8 @@
 title: Write as few comments as you can
 description: I am a fan of coding, and I am a fan of writing. Naturally, when I started coding, I sprinkled my writing throughout my code in the form of comments. I wrote them envisioning that…
 date: 2023-12-09
+# updated: YYYY-MM-DD
+tags: []
 published: true
 ---
 

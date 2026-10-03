@@ -51,8 +51,6 @@
 			{data.title}
 		</h1>
 		<p class="mt-5 text-meta leading-[1.45] text-ink-muted">
-			<span>Peter Chen</span>
-			<span aria-hidden="true"> · </span>
 			<time datetime={data.date}>{formatPostDate(data.date)}</time>
 		</p>
 	</header>

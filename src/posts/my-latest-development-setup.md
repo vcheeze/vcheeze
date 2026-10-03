@@ -2,6 +2,8 @@
 title: My latest development setup
 description: "Up until recently, I've been using my work laptop for a mix of both work and personal projects. Recently, however, as part of my company's restructuring and policy reviews, it beca…"
 date: 2025-09-15
+# updated: YYYY-MM-DD
+tags: []
 published: true
 ---
 

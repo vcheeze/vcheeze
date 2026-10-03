@@ -4,6 +4,10 @@ export type PostMeta = {
 	title: string;
 	description: string;
 	date: string;
+	/** Last substantive revision; reserved for display/SEO later. */
+	updated?: string;
+	/** Topic labels; reserved for filtering/display later. */
+	tags?: string[];
 	published?: boolean;
 };
 

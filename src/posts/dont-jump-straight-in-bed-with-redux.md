@@ -2,6 +2,8 @@
 title: "Don't jump straight in bed with Redux"
 description: Understand how Redux works, and why you are using it in your app.
 date: 2023-07-05
+# updated: YYYY-MM-DD
+tags: []
 published: true
 ---
 

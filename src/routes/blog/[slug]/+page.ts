@@ -16,6 +16,8 @@ export const load: PageLoad = ({ params }) => {
 		slug: post.slug,
 		title: post.title,
 		description: post.description,
-		date: post.date
+		date: post.date,
+		updated: post.updated,
+		tags: post.tags ?? []
 	};
 };

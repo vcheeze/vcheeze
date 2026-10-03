@@ -2,6 +2,8 @@
 title: When your function has many optional parameters, define the param as an object
 description: "A real-life example from Azure DevOps's Node.js API package that I recently had to endure:"
 date: 2024-01-02
+# updated: YYYY-MM-DD
+tags: []
 published: true
 ---
 

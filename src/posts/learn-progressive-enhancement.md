@@ -2,6 +2,8 @@
 title: Learn progressive enhancement
 description: Yes, exactly. What in the world is progressive enhancement?
 date: 2024-05-23
+# updated: YYYY-MM-DD
+tags: []
 published: true
 ---
 
