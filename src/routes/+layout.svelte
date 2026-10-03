@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { afterNavigate, onNavigate } from '$app/navigation';
 	import './layout.css';
-	import { initAnalytics, trackPageView } from '#lib/analytics.js';
+	import { bindLinkTracking, initAnalytics, trackPageView } from '#lib/analytics.js';
 	import favicon from '#lib/assets/favicon.svg';
 	import { site } from '#lib/seo.js';
 
@@ -22,6 +22,7 @@
 	afterNavigate(({ to }) => {
 		if (!to) return;
 		initAnalytics();
+		bindLinkTracking();
 		trackPageView(to.url);
 	});
 </script>

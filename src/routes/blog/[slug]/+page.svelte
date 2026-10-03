@@ -1,5 +1,7 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { resolve } from '$app/paths';
+	import { observeBlogRead } from '#lib/analytics.js';
 	import Seo from '#lib/components/Seo.svelte';
 	import { getPost, formatPostDate } from '#lib/posts.js';
 	import { blogPostingJsonLd, jsonLdScript, pageTitle, personJsonLd } from '#lib/seo.js';
@@ -19,6 +21,11 @@
 			})
 		])
 	);
+
+	$effect(() => {
+		if (!browser) return;
+		return observeBlogRead(data.slug);
+	});
 </script>
 
 <Seo
