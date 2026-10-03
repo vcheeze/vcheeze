@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { onNavigate } from '$app/navigation';
+	import { afterNavigate, onNavigate } from '$app/navigation';
 	import './layout.css';
+	import { initAnalytics, trackPageView } from '#lib/analytics.js';
 	import favicon from '#lib/assets/favicon.svg';
 	import { site } from '#lib/seo.js';
 
@@ -16,6 +17,12 @@
 				await navigation.complete;
 			});
 		});
+	});
+
+	afterNavigate(({ to }) => {
+		if (!to) return;
+		initAnalytics();
+		trackPageView(to.url);
 	});
 </script>
 
