@@ -1,7 +1,13 @@
 <script lang="ts">
 	import ArrowText from '#lib/components/ArrowText.svelte';
+	import Seo from '#lib/components/Seo.svelte';
 	import SiteNav from '#lib/components/SiteNav.svelte';
 	import { profile } from '#lib/content/profile.js';
+	import {
+		collectionPageJsonLd,
+		jsonLdScript,
+		personJsonLd
+	} from '#lib/seo.js';
 	import EnvelopeSimpleIcon from 'phosphor-svelte/lib/EnvelopeSimpleIcon';
 	import GithubLogoIcon from 'phosphor-svelte/lib/GithubLogoIcon';
 	import LinkedinLogoIcon from 'phosphor-svelte/lib/LinkedinLogoIcon';
@@ -13,6 +19,17 @@
 		linkedin: LinkedinLogoIcon,
 		github: GithubLogoIcon
 	};
+
+	const workDescription = profile.thesis;
+	const workTitle = `${profile.name} · Work`;
+	const workJsonLd = jsonLdScript([
+		personJsonLd(),
+		collectionPageJsonLd({
+			path: '/work',
+			name: workTitle,
+			description: workDescription
+		})
+	]);
 
 	let canScrollMore = $state(false);
 
@@ -32,10 +49,12 @@
 	});
 </script>
 
-<svelte:head>
-	<title>{profile.name} · Work</title>
-	<meta name="description" content={profile.thesis} />
-</svelte:head>
+<Seo
+	title={workTitle}
+	description={workDescription}
+	path="/work"
+	jsonLd={workJsonLd}
+/>
 
 <div
 	aria-hidden="true"
@@ -70,7 +89,7 @@
 						class="inline-flex items-center gap-[0.4rem] text-meta text-ink-muted no-underline transition-colors duration-[160ms] ease-in-out hover:text-ink motion-reduce:transition-none"
 						href={social.href}
 						target="_blank"
-						rel="external noopener noreferrer"
+						rel={social.id === 'email' ? 'external noopener noreferrer' : 'me external noopener noreferrer'}
 					>
 						<span class="inline-flex shrink-0 [&>svg]:block" aria-hidden="true">
 							<Icon size={16} weight="regular" />
@@ -156,7 +175,7 @@
 						class="inline-flex items-center gap-[0.4rem] text-meta text-ink-muted no-underline transition-colors duration-[160ms] ease-in-out hover:text-ink motion-reduce:transition-none"
 						href={social.href}
 						target="_blank"
-						rel="external noopener noreferrer"
+						rel={social.id === 'email' ? 'external noopener noreferrer' : 'me external noopener noreferrer'}
 					>
 						<span class="inline-flex shrink-0 [&>svg]:block" aria-hidden="true">
 							<Icon size={16} weight="regular" />

@@ -1,15 +1,30 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import Seo from '#lib/components/Seo.svelte';
 	import SiteNav from '#lib/components/SiteNav.svelte';
 	import { formatPostDate } from '#lib/posts.js';
+	import { collectionPageJsonLd, jsonLdScript, pageTitle, personJsonLd } from '#lib/seo.js';
 
 	let { data } = $props();
+
+	const blogDescription =
+		'Writings by Peter Chen (vcheeze) about building software, process, tools, and life.';
+	const blogJsonLd = jsonLdScript([
+		personJsonLd(),
+		collectionPageJsonLd({
+			path: '/blog',
+			name: pageTitle('Writing'),
+			description: blogDescription
+		})
+	]);
 </script>
 
-<svelte:head>
-	<title>Blog · vcheeze</title>
-	<meta name="description" content="Writing from vcheeze." />
-</svelte:head>
+<Seo
+	title={pageTitle('Writing')}
+	description={blogDescription}
+	path="/blog"
+	jsonLd={blogJsonLd}
+/>
 
 <div
 	class="mx-auto min-h-dvh max-w-[calc(40rem+2*var(--spacing-page))] px-page pb-[clamp(3rem,8vw,6rem)]"

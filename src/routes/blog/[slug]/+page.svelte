@@ -1,17 +1,34 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import Seo from '#lib/components/Seo.svelte';
 	import { getPost, formatPostDate } from '#lib/posts.js';
+	import { blogPostingJsonLd, jsonLdScript, pageTitle, personJsonLd } from '#lib/seo.js';
 
 	let { data } = $props();
 
 	const post = $derived(getPost(data.slug));
 	const Content = $derived(post?.content);
+	const postJsonLd = $derived(
+		jsonLdScript([
+			personJsonLd(),
+			blogPostingJsonLd({
+				slug: data.slug,
+				title: data.title,
+				description: data.description,
+				date: data.date
+			})
+		])
+	);
 </script>
 
-<svelte:head>
-	<title>{data.title} · vcheeze</title>
-	<meta name="description" content={data.description} />
-</svelte:head>
+<Seo
+	title={pageTitle(data.title)}
+	description={data.description}
+	path={`/blog/${data.slug}`}
+	type="article"
+	publishedTime={data.date}
+	jsonLd={postJsonLd}
+/>
 
 <div
 	class="mx-auto min-h-dvh max-w-[calc(40rem+2*var(--spacing-page))] px-page pb-[clamp(3rem,8vw,6rem)]"
@@ -27,6 +44,8 @@
 			{data.title}
 		</h1>
 		<p class="mt-5 text-meta leading-[1.45] text-ink-muted">
+			<span>Peter Chen</span>
+			<span aria-hidden="true"> · </span>
 			<time datetime={data.date}>{formatPostDate(data.date)}</time>
 		</p>
 	</header>
