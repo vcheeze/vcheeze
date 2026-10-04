@@ -80,25 +80,6 @@
 		>
 			{profile.thesis}
 		</p>
-
-		<ul class="mt-7 flex list-none flex-wrap gap-x-5 gap-y-[0.65rem] p-0">
-			{#each profile.socials as social (social.id)}
-				{@const Icon = socialIcons[social.id]}
-				<li>
-					<a
-						class="inline-flex items-center gap-[0.4rem] text-meta text-ink-muted no-underline transition-colors duration-[160ms] ease-in-out hover:text-ink motion-reduce:transition-none"
-						href={social.href}
-						target="_blank"
-						rel={social.id === 'email' ? 'external noopener noreferrer' : 'me external noopener noreferrer'}
-					>
-						<span class="inline-flex shrink-0 [&>svg]:block" aria-hidden="true">
-							<Icon size={16} weight="regular" />
-						</span>
-						<span class="opacity-[0.85]">{social.handle}</span>
-					</a>
-				</li>
-			{/each}
-		</ul>
 	</header>
 
 	<main>
