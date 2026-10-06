@@ -1,40 +1,11 @@
-# sv
+<h3 align="center">Hello, I'm <a href="https://ptrchn.com">Peter</a>.</h3>
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+<p align="center">I code for <a href="https://www.pwc.com/m1/en.html">PwC Middle East</a>, and I specialize in the web.</p>
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```sh
-# create a new project
-npx sv create my-app
-```
-
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-pnpm dlx sv@0.17.1 create --template minimal --types ts --add tailwindcss="plugins:typography" mdsvex prettier eslint --install pnpm vcheeze
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
+<h4 align="center">Find me on:</h4>
+<div align="center">
+  <a href="https://linkedin.com/in/peterweichen">LinkedIn</a>
+</div>
+<div align="center">
+  <a href="mailto:peter.wei.chen212@gmail.com">Gmail</a>
+</div>
