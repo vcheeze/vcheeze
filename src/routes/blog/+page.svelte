@@ -19,12 +19,7 @@
 	]);
 </script>
 
-<Seo
-	title={pageTitle('Writing')}
-	description={blogDescription}
-	path="/blog"
-	jsonLd={blogJsonLd}
-/>
+<Seo title={pageTitle('Writing')} description={blogDescription} path="/blog" jsonLd={blogJsonLd} />
 
 <div
 	class="mx-auto min-h-dvh max-w-[calc(40rem+2*var(--spacing-page))] px-page pb-[clamp(3rem,8vw,6rem)]"
@@ -54,7 +49,7 @@
 							<header class="mb-1 flex items-baseline justify-between gap-x-4">
 								<h2 class="m-0 min-w-0 flex-1 text-body font-medium tracking-[-0.01em] text-pretty">
 									<a
-										class="border-b border-transparent text-inherit no-underline transition-colors duration-[160ms] ease-in-out hover:border-ink/30 motion-reduce:transition-none"
+										class="border-b border-transparent text-inherit no-underline transition-colors duration-[160ms] ease-in-out hover:border-mark/40 hover:text-mark motion-reduce:transition-none"
 										href={resolve(`blog/${post.slug}`)}>{post.title}</a
 									>
 								</h2>

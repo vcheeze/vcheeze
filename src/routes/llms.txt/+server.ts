@@ -12,17 +12,27 @@ export function GET() {
 		.join('\n');
 
 	const postLinks = posts
-		.map(
-			(post) =>
-				`- [${post.title}](${absoluteUrl(`/blog/${post.slug}`)}): ${post.description}`
-		)
+		.map((post) => `- [${post.title}](${absoluteUrl(`/blog/${post.slug}`)}): ${post.description}`)
 		.join('\n');
+
+	const personalSummaries: Record<(typeof profile.personal)[number]['url'], string> = {
+		'https://gopherwoodclinic.org':
+			'He built this for a clinic in Hsinchu and still runs it: appointments, staff admin, a PWA, and a live queue. It has been in production for five or six years and handles somewhere between 250 and 500 appointments a month.',
+		'https://mammon-manager.com':
+			'This is how his household keeps track of money. Shared envelopes, budgets that can span several categories, and charts by month or by year. He uses it every day, so when something breaks, he is the first to find out.'
+	};
 
 	const body = `# ${site.name}
 
-> Personal site of ${profile.name} (${site.name}). ${profile.thesis}
+> Personal site of ${profile.name} (${site.name}). He designs and ships web platforms for government services and AI products, and he leads that work from architecture through production.
 
-${profile.name} is a hands-on software engineer and technical lead based in Dubai, currently ${profile.current.title} at ${profile.current.org}. He builds web platforms for government and enterprise clients, ships personal products, and writes about software craft. Languages: ${profile.languages}.
+${profile.name} is a ${profile.current.title} at ${profile.current.org}, based in Dubai. He builds web platforms for government and enterprise clients, ships personal products, and writes about the work. Languages: ${profile.languages}.
+
+## Now
+
+As of ${profile.now.asOf}:
+
+${profile.now.lines.map((line) => `- ${line}`).join('\n')}
 
 ## Core
 
@@ -33,14 +43,12 @@ ${profile.name} is a hands-on software engineer and technical lead based in Duba
 ## Selected products
 
 ${profile.personal
-	.map((item) => `- [${item.name}](${item.url}): ${item.summary}`)
+	.map((item) => `- [${item.name}](${item.url}): ${personalSummaries[item.url]}`)
 	.join('\n')}
 
 ## Selected client work
 
-${profile.work
-	.map((item) => `- ${item.name} (${item.dates}): ${item.summary}`)
-	.join('\n')}
+${profile.work.map((item) => `- ${item.name} (${item.dates}): ${item.summary}`).join('\n')}
 
 ## Writing
 

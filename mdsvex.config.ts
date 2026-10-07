@@ -2,7 +2,7 @@ import { escapeSvelte, type MdsvexOptions } from 'mdsvex';
 import rehypeSlug from 'rehype-slug';
 import { createHighlighter } from 'shiki';
 
-const theme = 'github-dark-dimmed';
+const theme = 'poimandres';
 
 const highlighter = await createHighlighter({
 	themes: [theme],

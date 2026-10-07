@@ -12,7 +12,7 @@
 	];
 
 	const linkClass =
-		'text-ink-muted no-underline transition-colors duration-[160ms] ease-in-out hover:text-ink motion-reduce:transition-none';
+		'text-ink-muted no-underline transition-colors duration-[160ms] ease-in-out hover:text-mark motion-reduce:transition-none';
 </script>
 
 <nav

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
+	import { browser } from '$app/env';
 	import { resolve } from '$app/paths';
 	import { observeBlogRead } from '#lib/analytics.js';
 	import Seo from '#lib/components/Seo.svelte';
@@ -43,11 +43,13 @@
 	<header class="pt-[clamp(2.5rem,8vh,4.5rem)] pb-[clamp(2rem,6vh,3.5rem)]">
 		<p class="m-0 text-meta text-ink-muted">
 			<a
-				class="text-ink-muted no-underline transition-colors duration-[160ms] ease-in-out hover:text-ink motion-reduce:transition-none"
+				class="text-ink-muted no-underline transition-colors duration-[160ms] ease-in-out hover:text-mark motion-reduce:transition-none"
 				href={resolve('blog')}>← Blog</a
 			>
 		</p>
-		<h1 class="mt-6 text-display leading-[1.05] font-normal tracking-[-0.03em] text-balance">
+		<h1
+			class="mt-6 text-display leading-[1.05] font-normal tracking-[-0.03em] text-balance [view-transition-name:page-title]"
+		>
 			{data.title}
 		</h1>
 		<p class="mt-5 text-meta leading-[1.45] text-ink-muted">

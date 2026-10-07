@@ -1,16 +1,11 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import NowNote from '#lib/components/NowNote.svelte';
 	import Seo from '#lib/components/Seo.svelte';
 	import SiteNav from '#lib/components/SiteNav.svelte';
 	import { profile } from '#lib/content/profile.js';
 	import { formatPostDate, getPosts } from '#lib/posts.js';
-	import {
-		jsonLdScript,
-		personJsonLd,
-		profilePageJsonLd,
-		site,
-		websiteJsonLd
-	} from '#lib/seo.js';
+	import { jsonLdScript, personJsonLd, profilePageJsonLd, site, websiteJsonLd } from '#lib/seo.js';
 	import ArrowSquareOutIcon from 'phosphor-svelte/lib/ArrowSquareOutIcon';
 	import EnvelopeSimpleIcon from 'phosphor-svelte/lib/EnvelopeSimpleIcon';
 	import GithubLogoIcon from 'phosphor-svelte/lib/GithubLogoIcon';
@@ -84,23 +79,7 @@
 	</header>
 
 	<main>
-		<section class="mt-0" aria-labelledby="sec-now">
-			<h2 id="sec-now" class="mb-5 text-title font-normal tracking-[-0.02em]">Now</h2>
-			<div class="flex flex-col gap-[0.55rem]">
-				<p class="m-0 font-medium">
-					<a
-						class="border-b border-transparent text-inherit no-underline transition-colors duration-[160ms] ease-in-out hover:border-ink/30 motion-reduce:transition-none"
-						href={resolve('work')}
-					>
-						{profile.current.org}
-					</a>
-				</p>
-				<p class="m-0 text-meta leading-[1.45] text-ink-muted">
-					{profile.current.title} · {profile.current.dates}
-				</p>
-				<p class="m-0">{profile.current.summary}</p>
-			</div>
-		</section>
+		<NowNote linkOrg />
 
 		<section class="mt-[clamp(3.5rem,9vh,5.5rem)]" aria-labelledby="sec-own">
 			<h2 id="sec-own" class="mb-5 text-title font-normal tracking-[-0.02em]">Things I ship</h2>
@@ -113,7 +92,7 @@
 							>
 								<h3 class="m-0 text-body font-medium tracking-[-0.01em]">
 									<a
-										class="inline-flex items-center gap-[0.3em] border-b border-transparent text-inherit no-underline transition-colors duration-[160ms] ease-in-out hover:border-ink/30 motion-reduce:transition-none"
+										class="inline-flex items-center gap-[0.3em] border-b border-transparent text-inherit no-underline transition-colors duration-[160ms] ease-in-out hover:border-mark/40 hover:text-mark motion-reduce:transition-none"
 										href={item.url}
 										target="_blank"
 										rel="external noopener noreferrer"
@@ -143,7 +122,7 @@
 					>
 						<h3 class="m-0 text-body font-medium tracking-[-0.01em]">
 							<a
-								class="border-b border-transparent text-inherit no-underline transition-colors duration-[160ms] ease-in-out hover:border-ink/30 motion-reduce:transition-none"
+								class="border-b border-transparent text-inherit no-underline transition-colors duration-[160ms] ease-in-out hover:border-mark/40 hover:text-mark motion-reduce:transition-none"
 								href={resolve(`blog/${latestPost.slug}`)}>{latestPost.title}</a
 							>
 						</h3>
@@ -155,7 +134,7 @@
 				</article>
 				<p class="m-0 mt-8">
 					<a
-						class="text-meta text-ink-muted no-underline transition-colors duration-[160ms] ease-in-out hover:text-ink motion-reduce:transition-none"
+						class="text-meta text-ink-muted no-underline transition-colors duration-[160ms] ease-in-out hover:text-mark motion-reduce:transition-none"
 						href={resolve('blog')}>All posts →</a
 					>
 				</p>
@@ -169,12 +148,12 @@
 					<li>
 						<a class="group block text-inherit no-underline" href={resolve('blog')}>
 							<p
-								class="m-0 text-body font-medium tracking-[-0.01em] transition-colors duration-[160ms] ease-in-out group-hover:text-ink motion-reduce:transition-none"
+								class="m-0 text-body font-medium tracking-[-0.01em] transition-colors duration-[160ms] ease-in-out group-hover:text-mark motion-reduce:transition-none"
 							>
 								Writing →
 							</p>
 							<p class="m-0 mt-[0.35rem] text-meta leading-[1.45] text-ink-muted">
-								Notes on building
+								What I’m learning as I build
 							</p>
 						</a>
 					</li>
@@ -189,10 +168,12 @@
 				{@const Icon = socialIcons[social.id]}
 				<li>
 					<a
-						class="inline-flex items-center gap-[0.4rem] text-meta text-ink-muted no-underline transition-colors duration-[160ms] ease-in-out hover:text-ink motion-reduce:transition-none"
+						class="inline-flex items-center gap-[0.4rem] text-meta text-ink-muted no-underline transition-colors duration-[160ms] ease-in-out hover:text-mark motion-reduce:transition-none"
 						href={social.href}
 						target="_blank"
-						rel={social.id === 'email' ? 'external noopener noreferrer' : 'me external noopener noreferrer'}
+						rel={social.id === 'email'
+							? 'external noopener noreferrer'
+							: 'me external noopener noreferrer'}
 					>
 						<span class="inline-flex shrink-0 [&>svg]:block" aria-hidden="true">
 							<Icon size={16} weight="regular" />

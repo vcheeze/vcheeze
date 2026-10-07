@@ -1,13 +1,10 @@
 <script lang="ts">
 	import ArrowText from '#lib/components/ArrowText.svelte';
+	import NowNote from '#lib/components/NowNote.svelte';
 	import Seo from '#lib/components/Seo.svelte';
 	import SiteNav from '#lib/components/SiteNav.svelte';
 	import { profile } from '#lib/content/profile.js';
-	import {
-		collectionPageJsonLd,
-		jsonLdScript,
-		personJsonLd
-	} from '#lib/seo.js';
+	import { collectionPageJsonLd, jsonLdScript, personJsonLd } from '#lib/seo.js';
 	import EnvelopeSimpleIcon from 'phosphor-svelte/lib/EnvelopeSimpleIcon';
 	import GithubLogoIcon from 'phosphor-svelte/lib/GithubLogoIcon';
 	import LinkedinLogoIcon from 'phosphor-svelte/lib/LinkedinLogoIcon';
@@ -49,12 +46,7 @@
 	});
 </script>
 
-<Seo
-	title={workTitle}
-	description={workDescription}
-	path="/work"
-	jsonLd={workJsonLd}
-/>
+<Seo title={workTitle} description={workDescription} path="/work" jsonLd={workJsonLd} />
 
 <div
 	aria-hidden="true"
@@ -83,16 +75,7 @@
 	</header>
 
 	<main>
-		<section class="mt-0" aria-labelledby="sec-now">
-			<h2 id="sec-now" class="mb-5 text-title font-normal tracking-[-0.02em]">Now</h2>
-			<div class="flex flex-col gap-[0.55rem]">
-				<p class="m-0 font-medium">{profile.current.org}</p>
-				<p class="m-0 text-meta leading-[1.45] text-ink-muted">
-					{profile.current.title} · {profile.current.dates}
-				</p>
-				<p class="m-0">{profile.current.summary}</p>
-			</div>
-		</section>
+		<NowNote summary />
 
 		<section class="mt-[clamp(3.5rem,9vh,5.5rem)]" aria-labelledby="sec-path">
 			<h2 id="sec-path" class="mb-5 text-title font-normal tracking-[-0.02em]">Path</h2>
@@ -153,10 +136,12 @@
 				{@const Icon = socialIcons[social.id]}
 				<li>
 					<a
-						class="inline-flex items-center gap-[0.4rem] text-meta text-ink-muted no-underline transition-colors duration-[160ms] ease-in-out hover:text-ink motion-reduce:transition-none"
+						class="inline-flex items-center gap-[0.4rem] text-meta text-ink-muted no-underline transition-colors duration-[160ms] ease-in-out hover:text-mark motion-reduce:transition-none"
 						href={social.href}
 						target="_blank"
-						rel={social.id === 'email' ? 'external noopener noreferrer' : 'me external noopener noreferrer'}
+						rel={social.id === 'email'
+							? 'external noopener noreferrer'
+							: 'me external noopener noreferrer'}
 					>
 						<span class="inline-flex shrink-0 [&>svg]:block" aria-hidden="true">
 							<Icon size={16} weight="regular" />

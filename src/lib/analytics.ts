@@ -1,4 +1,4 @@
-import { browser, dev } from '$app/environment';
+import { browser, dev } from '$app/env';
 
 const MEASUREMENT_ID = 'G-YBZN7FMZL2';
 const PROD_HOSTS = new Set(['ptrchn.com', 'www.ptrchn.com']);
