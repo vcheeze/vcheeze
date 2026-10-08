@@ -13,7 +13,7 @@ Are you using it just to avoid prop drilling because your app requires many comp
 
 Is Redux used in your app to help with caching state from the server and nothing else? Check out Vercel's [SWR library](https://swr.vercel.app/) or [TanStack Query](https://tanstack.com/query/latest) (formerly react-query). These libraries are designed for just this use case, which means you probably don't need Redux at this point in your app.
 
-### Why?
+## Why?
 
 Redux is a full-featured, opinionated state management tool. It can do many things, but maybe isn't the best at all of them (Mark Erkson, maintainer of Redux, said so himself in [this episode on the JS Party podcast](https://changelog.com/jsparty/146) right around the hour-and-2-minute mark). Understanding what Redux does and the specific needs of your application allow you to decide the best tools to integrate with your application, instead of running `npm install react-redux` right after you create your React app and introduce indirection and unnecessary cluttering in your code.
 

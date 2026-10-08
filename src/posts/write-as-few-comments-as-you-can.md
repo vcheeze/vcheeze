@@ -13,7 +13,7 @@ Well, that may not have been a bad way to start software development - it helped
 
 Unless you are writing code that you expect complete programming noobs to read through, understand, and work on, it's better to avoid superfluous comments. Instead, aim to write code that is easy to understand.
 
-### Why?
+## Why?
 
 Let's look at the following example:
 

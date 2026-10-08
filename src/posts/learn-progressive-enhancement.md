@@ -7,7 +7,7 @@ tags: []
 published: true
 ---
 
-### Huh?
+## Huh?
 
 Yes, exactly. What in the world is progressive enhancement?
 
@@ -19,13 +19,13 @@ So, progressive enhancement is a philosophy that aims to provide a stable, consi
 
 But perhaps it is better to think of progressive enhancement as building a flight of stairs that can function as an escalator whenever possible (electricity is provided, its passengers have opted for it, etc.). This difference in mindset is [emphasized by Jeremy Keith](https://adactio.com/journal/9963) and is the crucial distinction between progressive enhancement and graceful degradation. Progressive enhancement builds from the ground up and adds extra enhancements for users who can experience them, while graceful degradation starts with the newest, fanciest technologies and tries to make sure there is something to fall back on in case they don't work. For those who entered the web dev space in the past decade, Single Page Applications have been "the thing" because of React, Vue, etc. Building progressive enhancement into our web apps requires a complete shift in our thinking and habits, back to the era of jQuery and Bootstrap (not that you should use either of these ancient artifacts) when progressive enhancement was (more so) the norm.
 
-### Why?
+## Why?
 
 Okay, but if progressive enhancement requires such a drastic change, is it really worth it? Who doesn't have JavaScript enabled on their browser, and who still uses IE nowadays? Read this [flow chart by Stuart Langridge](https://www.kryogenix.org/code/browser/everyonehasjs.html) and see for yourself. JavaScript can be unavailable a lot more often than we think, and not just because someone disabled it on their browser. And why do we care if these "edge cases" happen? Because [availability matters](https://www.kryogenix.org/code/browser/why-availability/). Progressive enhancement's content-/accessibility-first approach can help address [factors that influence conversion rate](https://blog.hubspot.com/marketing/page-load-time-conversion-rates) and [improve your customer retention](https://www.tawk.to/customer-happiness/why-high-availability-is-important-for-customer-retention/). Apply it and your website's traffic will benefit.
 
 Furthermore, discussions around progressive enhancement have been on the rise again, so new frameworks like [Remix](https://remix.run/docs/en/main/pages/philosophy#progressive-enhancement) and [SvelteKit](https://kit.svelte.dev/docs/form-actions#progressive-enhancement) are built with it in mind, and existing frameworks like [Next.js](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions#progressive-enhancement) and [Gatsby](https://www.gatsbyjs.com/docs/glossary/progressive-enhancement/) are adding support for and documentation around it. There is no excuse for not learning it.
 
-### Unless...
+## Unless...
 
 ...progressive enhancement doesn't apply in your case.
 

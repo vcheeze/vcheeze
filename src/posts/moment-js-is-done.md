@@ -19,7 +19,7 @@ Some stats to illustrate the sheer momentum (pun fully intended) of this library
 
 For reference, `tailwindcss` has ~31.4 million downloads this week, and `react` ~53.8 million. For a package that was last published two years ago, Moment still has an inredible hold in the modern javascript world.
 
-### What changed?
+## What changed?
 
 Now, why do the maintainers discourage using Moment in new projects? A couple of key points:
 
@@ -30,7 +30,7 @@ Now, why do the maintainers discourage using Moment in new projects? A couple of
 
 Moment started in 2011, and it essentially became outdated. It remains one of the most widely used libraries, however, so it continues to be maintained, which brings us to the point below.
 
-### What are the implications?
+## What are the implications?
 
 Here's what "maintenance mode" means for Moment:
 
@@ -40,7 +40,7 @@ Here's what "maintenance mode" means for Moment:
 - Critical security concerns *will* be addressed
 - Data updates for Moment-Timezone *will* be released
 
-### What's the way forward?
+## What's the way forward?
 
 The alternatives Moment recommends are mentioned above. Notably, Luxon is created by one of the contributors of Moment, whose ideas on how to improve Moment were well-received but restricted by the design of the library. This gave birth to Luxon, which inherits parts of Moment and introduces major changes that address Moment's pitfalls.
 
