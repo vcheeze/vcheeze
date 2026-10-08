@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 
-	type Page = 'home' | 'work' | 'writing';
+	type Page = 'home' | 'work' | 'writing' | 'projects';
 
 	let { current }: { current: Page } = $props();
 

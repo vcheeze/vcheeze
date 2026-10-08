@@ -19,7 +19,9 @@ export function GET() {
 		'https://gopherwoodclinic.org':
 			'He built this for a clinic in Hsinchu and still runs it: appointments, staff admin, a PWA, and a live queue. It has been in production for five or six years and handles somewhere between 250 and 500 appointments a month.',
 		'https://mammon-manager.com':
-			'This is how his household keeps track of money. Shared envelopes, budgets that can span several categories, and charts by month or by year. He uses it every day, so when something breaks, he is the first to find out.'
+			'This is how his household keeps track of money. Shared envelopes, budgets that can span several categories, and charts by month or by year. He uses it every day, so when something breaks, he is the first to find out.',
+		'https://programming-with-conscience.vercel.app':
+			'A guide to the anti-patterns and pet peeves that get past a linter and still break production. It comes from years of reviewing and writing code that has to ship.'
 	};
 
 	const body = `# ${site.name}
@@ -36,8 +38,9 @@ ${profile.now.lines.map((line) => `- ${line}`).join('\n')}
 
 ## Core
 
-- [Home](${absoluteUrl('/')}): Who ${profile.name} is, current role, personal products, and latest writing
+- [Home](${absoluteUrl('/')}): Who ${profile.name} is, current role, a featured personal product, and latest writing
 - [Work](${absoluteUrl('/work')}): Career path, selected client work, and craft/skills
+- [Things I’ve shipped](${absoluteUrl('/projects')}): Personal products he has shipped on his own
 - [Writing](${absoluteUrl('/blog')}): Notes on building software, process, and tools
 
 ## Selected products

@@ -115,19 +115,27 @@ export const profile = {
 	personal: [
 		{
 			name: 'Gopher Wood Clinic',
-			dates: '2020–present',
 			url: 'https://gopherwoodclinic.org',
+			featured: true,
 			summary:
 				'I built this for a clinic in Hsinchu, and I still run it: appointments, staff admin, a PWA, and a live queue. It has been in production for five or six years, and it handles somewhere between 250 and 500 appointments a month.',
 			meta: 'TanStack Start · CockroachDB · Fly.io'
 		},
 		{
 			name: 'Mammon Manager',
-			dates: '2023–present',
 			url: 'https://mammon-manager.com',
+			featured: false,
 			summary:
 				'This is how my household keeps track of money. Shared envelopes, budgets that can span several categories, and charts by month or by year. I use it every day, so when something breaks, I’m the first to find out.',
 			meta: 'TanStack Start · Neon · Cloudflare'
+		},
+		{
+			name: 'Programming with Conscience',
+			url: 'https://programming-with-conscience.vercel.app',
+			featured: false,
+			summary:
+				'A guide to the anti-patterns and pet peeves that get past a linter and still break production. It comes from years of reviewing and writing code that has to ship.',
+			meta: 'Code review · anti-patterns'
 		}
 	],
 	skills: [

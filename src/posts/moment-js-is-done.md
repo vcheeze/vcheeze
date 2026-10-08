@@ -7,7 +7,7 @@ tags: []
 published: true
 ---
 
-> "We now generally consider Moment to be a legacy project in maintenance mode. It is not dead, but it is indeed done."
+> We now generally consider Moment to be a legacy project in maintenance mode. It is not dead, but it is indeed done.
 
 This is a direct quote from [Moment.js's docs](https://momentjs.com/docs/), where the maintainers of the popular date management library explain why Moment's evolution is coming to an end.
 

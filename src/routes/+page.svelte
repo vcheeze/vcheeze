@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import NowNote from '#lib/components/NowNote.svelte';
+	import ProjectItem from '#lib/components/ProjectItem.svelte';
 	import Seo from '#lib/components/Seo.svelte';
 	import SiteNav from '#lib/components/SiteNav.svelte';
 	import { profile } from '#lib/content/profile.js';
 	import { formatPostDate, getPosts } from '#lib/posts.js';
 	import { jsonLdScript, personJsonLd, profilePageJsonLd, site, websiteJsonLd } from '#lib/seo.js';
-	import ArrowSquareOutIcon from 'phosphor-svelte/lib/ArrowSquareOutIcon';
 	import EnvelopeSimpleIcon from 'phosphor-svelte/lib/EnvelopeSimpleIcon';
 	import GithubLogoIcon from 'phosphor-svelte/lib/GithubLogoIcon';
 	import LinkedinLogoIcon from 'phosphor-svelte/lib/LinkedinLogoIcon';
@@ -19,6 +19,7 @@
 		github: GithubLogoIcon
 	};
 
+	const featuredProjects = profile.personal.filter((item) => item.featured);
 	const latestPost = getPosts()[0];
 	const homeJsonLd = jsonLdScript([
 		personJsonLd(),
@@ -82,35 +83,20 @@
 		<NowNote linkOrg />
 
 		<section class="mt-[clamp(3.5rem,9vh,5.5rem)]" aria-labelledby="sec-own">
-			<h2 id="sec-own" class="mb-5 text-title font-normal tracking-[-0.02em]">Things I ship</h2>
+			<h2 id="sec-own" class="mb-5 text-title font-normal tracking-[-0.02em]">Things I’ve shipped</h2>
 			<ul class="m-0 flex list-none flex-col gap-8 p-0">
-				{#each profile.personal as item (item.url)}
+				{#each featuredProjects as item (item.url)}
 					<li>
-						<article>
-							<header
-								class="mb-1 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-[0.35rem]"
-							>
-								<h3 class="m-0 text-body font-medium tracking-[-0.01em]">
-									<a
-										class="inline-flex items-center gap-[0.3em] border-b border-transparent text-inherit no-underline transition-colors duration-[160ms] ease-in-out hover:border-mark/40 hover:text-mark motion-reduce:transition-none"
-										href={item.url}
-										target="_blank"
-										rel="external noopener noreferrer"
-									>
-										{item.name}
-										<span class="inline-flex opacity-55 [&>svg]:block" aria-hidden="true">
-											<ArrowSquareOutIcon size="0.85em" weight="regular" />
-										</span>
-									</a>
-								</h3>
-								<p class="m-0 text-meta leading-[1.45] text-ink-muted">{item.dates}</p>
-							</header>
-							<p class="m-0">{item.summary}</p>
-							<p class="mt-[0.65rem] text-meta leading-[1.45] text-ink-muted">{item.meta}</p>
-						</article>
+						<ProjectItem {item} />
 					</li>
 				{/each}
 			</ul>
+			<p class="m-0 mt-8">
+				<a
+					class="text-meta text-ink-muted no-underline transition-colors duration-[160ms] ease-in-out hover:text-mark motion-reduce:transition-none"
+					href={resolve('projects')}>All projects →</a
+				>
+			</p>
 		</section>
 
 		{#if latestPost}

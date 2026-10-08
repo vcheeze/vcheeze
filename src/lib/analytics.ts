@@ -62,6 +62,7 @@ function linkIdFromHref(href: string): string {
 		if (host === 'github.com') return 'github';
 		if (host === 'gopherwoodclinic.org') return 'gopher-wood-clinic';
 		if (host === 'mammon-manager.com') return 'mammon-manager';
+		if (host === 'programming-with-conscience.vercel.app') return 'programming-with-conscience';
 
 		return host;
 	} catch {

@@ -3,7 +3,7 @@ import { absoluteUrl } from '#lib/seo.js';
 
 export const prerender = true;
 
-const staticPaths = ['/', '/work', '/blog'] as const;
+const staticPaths = ['/', '/work', '/projects', '/blog'] as const;
 
 function xmlEscape(value: string): string {
 	return value
