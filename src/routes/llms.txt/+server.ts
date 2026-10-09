@@ -18,6 +18,8 @@ export function GET() {
 	const personalSummaries: Record<(typeof profile.personal)[number]['url'], string> = {
 		'https://gopherwoodclinic.org':
 			'He built this for a clinic in Hsinchu and still runs it: appointments, staff admin, a PWA, and a live queue. It has been in production for five or six years and handles somewhere between 250 and 500 appointments a month.',
+		'https://looops.ptrchn.com':
+			'This is where he tracks outcomes he is waiting on other people for. He opens a loop, names what they owe, and it comes back around when it is time to nudge them.',
 		'https://mammon-manager.com':
 			'This is how his household keeps track of money. Shared envelopes, budgets that can span several categories, and charts by month or by year. He uses it every day, so when something breaks, he is the first to find out.',
 		'https://programming-with-conscience.vercel.app':

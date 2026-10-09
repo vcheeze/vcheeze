@@ -17,7 +17,8 @@
 				slug: data.slug,
 				title: data.title,
 				description: data.description,
-				date: data.date
+				date: data.date,
+				updated: data.updated
 			})
 		])
 	);
@@ -34,6 +35,7 @@
 	path={`/blog/${data.slug}`}
 	type="article"
 	publishedTime={data.date}
+	modifiedTime={data.updated}
 	jsonLd={postJsonLd}
 />
 
@@ -53,7 +55,13 @@
 			{data.title}
 		</h1>
 		<p class="mt-5 text-meta leading-[1.45] text-ink-muted">
-			<time datetime={data.date}>{formatPostDate(data.date)}</time>
+			{#if data.updated}
+				<time datetime={data.date}>Published {formatPostDate(data.date)}</time>
+				<span aria-hidden="true"> · </span>
+				<time datetime={data.updated}>Updated {formatPostDate(data.updated)}</time>
+			{:else}
+				<time datetime={data.date}>{formatPostDate(data.date)}</time>
+			{/if}
 		</p>
 	</header>
 

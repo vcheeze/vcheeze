@@ -105,6 +105,7 @@ export function blogPostingJsonLd(opts: {
 	title: string;
 	description: string;
 	date: string;
+	updated?: string;
 }) {
 	const url = absoluteUrl(`/blog/${opts.slug}`);
 	return {
@@ -114,7 +115,7 @@ export function blogPostingJsonLd(opts: {
 		headline: opts.title,
 		description: opts.description,
 		datePublished: opts.date,
-		dateModified: opts.date,
+		dateModified: opts.updated ?? opts.date,
 		mainEntityOfPage: url,
 		url,
 		inLanguage: 'en',

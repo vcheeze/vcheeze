@@ -2,7 +2,7 @@
 title: My latest development setup
 description: "Up until recently, I've been using my work laptop for a mix of both work and personal projects. Recently, however, as part of my company's restructuring and policy reviews, it beca…"
 date: 2025-09-15
-# updated: YYYY-MM-DD
+updated: 2026-08-14
 tags: []
 published: true
 ---
@@ -11,7 +11,7 @@ published: true
 
 Up until recently, I've been using my work laptop for a mix of both work and personal projects. Recently, however, as part of my company's restructuring and policy reviews, it became ridiculously hard to disconnect from the mandatory company VPN, which blocks a lot of essential and useful tools in development, including many cloud services and Gen AI platforms.
 
-So... I'm coming back to my personal laptop, which is a bit smaller and older, but still in great condition. My setup here has become a bit outdated, so in going through bringing my latest setup here, I wanted to document what I did.
+So... I'm coming back to my personal laptop, which is a bit smaller and older, but still in great condition. My setup here has become a bit outdated, so as I bring my latest setup to my personal machine, I wanted to document what I did.
 
 ## Terminal
 

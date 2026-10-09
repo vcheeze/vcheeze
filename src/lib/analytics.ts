@@ -61,6 +61,7 @@ function linkIdFromHref(href: string): string {
 		if (host === 'linkedin.com' || host.endsWith('.linkedin.com')) return 'linkedin';
 		if (host === 'github.com') return 'github';
 		if (host === 'gopherwoodclinic.org') return 'gopher-wood-clinic';
+		if (host === 'looops.ptrchn.com') return 'looops';
 		if (host === 'mammon-manager.com') return 'mammon-manager';
 		if (host === 'programming-with-conscience.vercel.app') return 'programming-with-conscience';
 

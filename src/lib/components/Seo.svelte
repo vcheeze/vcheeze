@@ -8,7 +8,8 @@
 		path,
 		type = 'website',
 		jsonLd,
-		publishedTime
+		publishedTime,
+		modifiedTime
 	}: {
 		title: string;
 		description: string;
@@ -16,6 +17,7 @@
 		type?: 'website' | 'article' | 'profile';
 		jsonLd?: string;
 		publishedTime?: string;
+		modifiedTime?: string;
 	} = $props();
 
 	const canonical = $derived(absoluteUrl(path ?? page.url.pathname));
@@ -45,6 +47,9 @@
 
 	{#if type === 'article' && publishedTime}
 		<meta property="article:published_time" content={publishedTime} />
+		{#if modifiedTime}
+			<meta property="article:modified_time" content={modifiedTime} />
+		{/if}
 		<meta property="article:author" content="Peter Chen" />
 	{/if}
 

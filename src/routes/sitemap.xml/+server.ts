@@ -25,7 +25,7 @@ export function GET() {
 			loc: absoluteUrl(`/blog/${post.slug}`),
 			changefreq: 'yearly',
 			priority: '0.6',
-			lastmod: post.date.slice(0, 10)
+			lastmod: (post.updated ?? post.date).slice(0, 10)
 		}))
 	];
 

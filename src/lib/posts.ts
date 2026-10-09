@@ -4,7 +4,7 @@ export type PostMeta = {
 	title: string;
 	description: string;
 	date: string;
-	/** Last substantive revision; reserved for display/SEO later. */
+	/** Last substantive revision. Shown on the post and used as dateModified. */
 	updated?: string;
 	/** Topic labels; reserved for filtering/display later. */
 	tags?: string[];

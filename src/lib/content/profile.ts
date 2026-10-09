@@ -122,6 +122,14 @@ export const profile = {
 			meta: 'TanStack Start · CockroachDB · Fly.io'
 		},
 		{
+			name: 'Looops',
+			url: 'https://looops.ptrchn.com',
+			featured: false,
+			summary:
+				'This is where I track outcomes I’m waiting on other people for. I open a loop, name what they owe, and it comes back around when it’s time to nudge them.',
+			meta: 'SvelteKit 3'
+		},
+		{
 			name: 'Mammon Manager',
 			url: 'https://mammon-manager.com',
 			featured: false,
