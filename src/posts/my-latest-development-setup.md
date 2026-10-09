@@ -28,13 +28,12 @@ Simple steps I took to get everything up and running:
 5. Quit and restart your terminal for the default shell change to take effect
 6. Install [fisher](https://github.com/jorgebucaran/fisher), fish's plugin manager
 7. Install plugins via fisher. I like fzf, nvm, and gitnow
-8. You can also install
-9. `brew install starship` to install [Starship](https://starship.rs/), which I quite like
-10. that's it!
+8. `brew install starship` to install [Starship](https://starship.rs/), which I quite like ([tide](https://github.com/IlanCosman/tide) and [hydro](https://github.com/jorgebucaran/hydro) are other great alternatives)
+9. that's it!
 
 ## Applications
 
-Next, I installed the applications I use. The include:
+Next, I installed the applications I commonly use. These include:
 
 - [Raycast](https://www.raycast.com/) - best command center I've used so far
 - [Brave](https://brave.com/) - my fav broswer
@@ -44,6 +43,6 @@ Next, I installed the applications I use. The include:
 And a few not as essential but still nice-to-have:
 
 - Spotify
-- Notion
+- Notion - not to replace Obsidian but mainly for collaborating/sharing with others
 
-The others will be installed as I need them.
+Other apps will be installed as I need them.
