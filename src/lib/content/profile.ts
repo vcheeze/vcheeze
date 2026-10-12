@@ -1,8 +1,7 @@
 export const profile = {
 	name: 'Peter Chen',
 	email: 'peter.wei.chen212@gmail.com',
-	intro:
-		'I build software for a living, and then I go home and build more of it for myself.',
+	intro: 'I build software for a living, and then I go home and build more of it for myself.',
 	thesis:
 		'I design and ship web platforms for government services and AI products, and I lead that work from architecture through production.',
 	location: 'Dubai · remote preferred',
@@ -34,13 +33,13 @@ export const profile = {
 		title: 'Senior Manager · Lead Software Engineer',
 		dates: 'Nov 2018–present',
 		summary:
-			'I started here as a Microsoft Dynamics developer. Since then the roles have been full-stack engineer, technical lead, architect, and engineering manager, on government and enterprise platforms in the UAE, Saudi Arabia, and Qatar.'
+			'I started here as a Microsoft Dynamics developer. Since then I’ve worked as a full-stack engineer, technical lead, architect, and engineering manager on government and enterprise platforms in the UAE, Saudi Arabia, and Qatar.'
 	},
 	now: {
 		asOf: '2026-10-07',
 		lines: [
 			'Right now I’m on TAMM, the unified Abu Dhabi government services platform, building the path an investor takes from a trade license to a business that can actually operate. Each step has to connect, and the next one has to be clear. I spent years on this platform before, getting separate entities onto one continuous experience and keeping it stable in production.',
-			'I just finished U-Ask, a WhatsApp channel for government services in the UAE. I ran the client, the team, and the delivery, and I wrote the code when those left me free.',
+			'I just finished U-Ask, a WhatsApp channel for government services in the UAE. I managed the client relationship and the delivery team, and wrote code when I had time.',
 			'I also keep two systems of my own running. One books appointments for a clinic in Hsinchu. The other is how my household tracks money, and I use that one every day.'
 		]
 	},
@@ -49,7 +48,7 @@ export const profile = {
 			title: 'Senior Manager · Lead Software Engineer',
 			dates: 'Oct 2025–present',
 			detail:
-				'Completed U-Ask: client point of contact, reported to the engagement partner, led the technical team, BA, QA, SITs, UATs, work reports, and invoices via finance. Now on TAMM: investor journey from trade license to an operating business.'
+				'Completed U-Ask as the client point of contact, reporting to the engagement partner and leading the technical team, BA, QA, SITs, UATs, work reports, and invoicing with finance. Now on TAMM, working on the investor journey from trade license to an operating business.'
 		},
 		{
 			title: 'Manager · Engineering Manager',
@@ -67,7 +66,7 @@ export const profile = {
 			title: 'Associate · Microsoft Dynamics Consultant',
 			dates: 'Nov 2018–Sep 2019',
 			detail:
-				'Founding member of the Microsoft practice. Hexa’s customer portal, and an internal proposal generator later reused as the base for an AI proposal product.'
+				'Founding member of the Microsoft practice. Worked on Hexa’s customer portal and an internal proposal generator later reused as the base for an AI proposal product.'
 		}
 	],
 	work: [
@@ -92,7 +91,7 @@ export const profile = {
 			dates: '2024',
 			role: 'Software architect',
 			summary:
-				'AI-assisted proposal builder for a confidential client. The demo helped win the work. Technical decisions through delivery to production.',
+				'AI-assisted proposal builder for a confidential client. The demo helped win the work. I owned the technical decisions through delivery and production.',
 			meta: '$3.7M win · Next.js · FastAPI · RAG'
 		},
 		{
