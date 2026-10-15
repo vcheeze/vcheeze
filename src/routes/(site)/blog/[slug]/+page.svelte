@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { browser } from '$app/env';
-	import { resolve } from '$app/paths';
 	import { observeBlogRead } from '#lib/analytics.js';
 	import Seo from '#lib/components/Seo.svelte';
+	import { writingPath } from '#lib/paths.js';
 	import { getPost, formatPostDate } from '#lib/posts.js';
 	import { blogPostingJsonLd, jsonLdScript, pageTitle, personJsonLd } from '#lib/seo.js';
 
@@ -46,7 +46,7 @@
 		<p class="m-0 text-meta text-ink-muted">
 			<a
 				class="text-ink-muted no-underline transition-colors duration-[160ms] ease-in-out hover:text-mark motion-reduce:transition-none"
-				href={resolve('blog')}>← Blog</a
+				href={writingPath()}>← Blog</a
 			>
 		</p>
 		<h1

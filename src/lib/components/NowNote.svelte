@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { resolve } from '$app/paths';
 	import { profile } from '#lib/content/profile.js';
+	import { workPath } from '#lib/paths.js';
 	import { formatPostDate } from '#lib/posts.js';
 
 	let { linkOrg = false, summary = false }: { linkOrg?: boolean; summary?: boolean } = $props();
@@ -19,7 +19,7 @@
 	<div class="flex flex-col gap-[0.55rem]">
 		<p class="m-0">
 			{#if linkOrg}
-				<a class={orgLinkClass} href={resolve('work')}>{profile.current.org}</a>
+				<a class={orgLinkClass} href={workPath()}>{profile.current.org}</a>
 			{:else}
 				<span class="font-medium">{profile.current.org}</span>
 			{/if}<span class="text-meta leading-[1.45] text-ink-muted"

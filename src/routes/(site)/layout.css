@@ -1,8 +1,10 @@
+/* Site design system. Import this file only from src/routes/(site)/+layout.svelte. */
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @import 'shadcn-svelte/tailwind.css';
 @import '@fontsource-variable/inter/opsz.css';
 @plugin '@tailwindcss/typography';
+@source not '../../reports/**/*';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -106,10 +108,13 @@
 }
 
 @layer base {
-	* {
+	/* Keep these under .site (siteRootClass) so they cannot restyle a report. */
+	.site,
+	.site * {
 		@apply border-border outline-ring/50;
 	}
 
+	/* Document styles. Report routes never load this file, so they do not inherit them. */
 	html {
 		@apply font-sans antialiased;
 		font-size: 14px;
@@ -123,83 +128,17 @@
 		text-rendering: optimizeLegibility;
 	}
 
-	::selection {
+	.site ::selection {
 		@apply bg-mark/30 text-ink;
 	}
 
-	:focus-visible {
+	.site :focus-visible {
 		@apply outline-[1.5px] outline-offset-[3px] outline-mark;
 	}
 
-	a {
+	.site a {
 		@apply decoration-1 underline-offset-[0.18em];
 	}
-}
-
-/* Page navigation — View Transitions API
-   Quiet dissolve. Opacity does the work; motion stays barely perceptible. */
-@keyframes vt-fade-out {
-	to {
-		opacity: 0;
-	}
-}
-
-@keyframes vt-fade-in {
-	from {
-		opacity: 0;
-	}
-}
-
-@keyframes vt-exit {
-	to {
-		opacity: 0;
-		filter: blur(1px);
-		transform: translateY(-2px);
-	}
-}
-
-@keyframes vt-enter {
-	from {
-		opacity: 0;
-		filter: blur(1px);
-		transform: translateY(4px);
-	}
-}
-
-::view-transition-old(root) {
-	animation: vt-fade-out 180ms ease both;
-}
-
-::view-transition-new(root) {
-	animation: vt-fade-in 240ms ease both;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-	::view-transition-old(root) {
-		animation: vt-exit 200ms ease both;
-	}
-
-	::view-transition-new(root) {
-		animation: vt-enter 260ms ease both;
-	}
-}
-
-/* Shared chrome morph across Home ↔ Work ↔ Writing */
-::view-transition-group(page-nav),
-::view-transition-group(page-title),
-::view-transition-group(page-description) {
-	animation-duration: 260ms;
-	animation-timing-function: ease;
-}
-
-::view-transition-old(page-nav),
-::view-transition-new(page-nav),
-::view-transition-old(page-title),
-::view-transition-new(page-title),
-::view-transition-old(page-description),
-::view-transition-new(page-description) {
-	animation-duration: 200ms;
-	animation-timing-function: ease;
 }
 
 @layer components {

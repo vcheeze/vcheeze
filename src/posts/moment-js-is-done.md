@@ -1,6 +1,6 @@
 ---
 title: "Moment.js is done (dead)"
-description: But many of its successors are caryying the torch.
+description: But many of its successors are carrying the torch.
 date: 2025-11-25
 # updated: YYYY-MM-DD
 tags: []

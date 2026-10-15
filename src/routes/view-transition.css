@@ -1,0 +1,84 @@
+/* Loaded on every document. Same-document moves use startViewTransition.
+   A full load between the site and a report uses the cross-document opt-in in app.html. */
+
+@keyframes vt-fade-out {
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes vt-fade-in {
+	from {
+		opacity: 0;
+	}
+}
+
+@keyframes vt-exit {
+	to {
+		opacity: 0;
+		filter: blur(1px);
+		transform: translateY(-2px);
+	}
+}
+
+@keyframes vt-enter {
+	from {
+		opacity: 0;
+		filter: blur(1px);
+		transform: translateY(4px);
+	}
+}
+
+::view-transition-old(root) {
+	animation: vt-fade-out 180ms ease both;
+}
+
+::view-transition-new(root) {
+	animation: vt-fade-in 240ms ease both;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	::view-transition-old(root) {
+		animation: vt-exit 200ms ease both;
+	}
+
+	::view-transition-new(root) {
+		animation: vt-enter 260ms ease both;
+	}
+}
+
+::view-transition-group(page-nav),
+::view-transition-group(page-title),
+::view-transition-group(page-description) {
+	animation-duration: 260ms;
+	animation-timing-function: ease;
+}
+
+::view-transition-old(page-nav),
+::view-transition-new(page-nav),
+::view-transition-old(page-title),
+::view-transition-new(page-title),
+::view-transition-old(page-description),
+::view-transition-new(page-description) {
+	animation-duration: 200ms;
+	animation-timing-function: ease;
+}
+
+/* Site is always light. A report can be dark, so this crossing is an opacity dissolve.
+   In-site moves keep the short animation above. */
+@media (prefers-reduced-motion: no-preference) {
+	:active-view-transition-type(cross-theme)::view-transition-old(root) {
+		animation: vt-fade-out 0.2s linear both;
+	}
+
+	:active-view-transition-type(cross-theme)::view-transition-new(root) {
+		animation: vt-fade-in 0.2s linear both;
+	}
+
+	:active-view-transition-type(cross-theme)::view-transition-group(page-nav),
+	:active-view-transition-type(cross-theme)::view-transition-group(page-title),
+	:active-view-transition-type(cross-theme)::view-transition-group(page-description) {
+		animation-duration: 0.2s;
+		animation-timing-function: linear;
+	}
+}

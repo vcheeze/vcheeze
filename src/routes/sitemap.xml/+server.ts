@@ -1,4 +1,5 @@
 import { getPosts } from '#lib/posts.js';
+import { getReports } from '#lib/reports.js';
 import { absoluteUrl } from '#lib/seo.js';
 
 export const prerender = true;
@@ -26,6 +27,12 @@ export function GET() {
 			changefreq: 'yearly',
 			priority: '0.6',
 			lastmod: (post.updated ?? post.date).slice(0, 10)
+		})),
+		...getReports().map((report) => ({
+			loc: absoluteUrl(`/blog/reports/${report.slug}`),
+			changefreq: 'yearly',
+			priority: '0.6',
+			lastmod: (report.updated ?? report.date).slice(0, 10)
 		}))
 	];
 

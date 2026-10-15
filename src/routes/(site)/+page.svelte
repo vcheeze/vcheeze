@@ -1,11 +1,12 @@
 <script lang="ts">
-	import { resolve } from '$app/paths';
 	import NowNote from '#lib/components/NowNote.svelte';
 	import ProjectItem from '#lib/components/ProjectItem.svelte';
 	import Seo from '#lib/components/Seo.svelte';
 	import SiteNav from '#lib/components/SiteNav.svelte';
 	import { profile } from '#lib/content/profile.js';
-	import { formatPostDate, getPosts } from '#lib/posts.js';
+	import { projectsPath, writingPath } from '#lib/paths.js';
+	import { formatPostDate } from '#lib/posts.js';
+	import { getWriting } from '#lib/writing.js';
 	import { jsonLdScript, personJsonLd, profilePageJsonLd, site, websiteJsonLd } from '#lib/seo.js';
 	import EnvelopeSimpleIcon from 'phosphor-svelte/lib/EnvelopeSimpleIcon';
 	import GithubLogoIcon from 'phosphor-svelte/lib/GithubLogoIcon';
@@ -20,7 +21,7 @@
 	};
 
 	const featuredProjects = profile.personal.filter((item) => item.featured);
-	const latestPost = getPosts()[0];
+	const latestWriting = getWriting()[0];
 	const homeJsonLd = jsonLdScript([
 		personJsonLd(),
 		websiteJsonLd(),
@@ -83,7 +84,9 @@
 		<NowNote linkOrg />
 
 		<section class="mt-[clamp(3.5rem,9vh,5.5rem)]" aria-labelledby="sec-own">
-			<h2 id="sec-own" class="mb-5 text-title font-normal tracking-[-0.02em]">Things I’ve shipped</h2>
+			<h2 id="sec-own" class="mb-5 text-title font-normal tracking-[-0.02em]">
+				Things I’ve shipped
+			</h2>
 			<ul class="m-0 flex list-none flex-col gap-8 p-0">
 				{#each featuredProjects as item (item.url)}
 					<li>
@@ -94,12 +97,12 @@
 			<p class="m-0 mt-8">
 				<a
 					class="text-meta text-ink-muted no-underline transition-colors duration-[160ms] ease-in-out hover:text-mark motion-reduce:transition-none"
-					href={resolve('projects')}>All projects →</a
+					href={projectsPath()}>All projects →</a
 				>
 			</p>
 		</section>
 
-		{#if latestPost}
+		{#if latestWriting}
 			<section class="mt-[clamp(3.5rem,9vh,5.5rem)]" aria-labelledby="sec-writing">
 				<h2 id="sec-writing" class="mb-5 text-title font-normal tracking-[-0.02em]">Writing</h2>
 				<article>
@@ -109,30 +112,36 @@
 						<h3 class="m-0 text-body font-medium tracking-[-0.01em]">
 							<a
 								class="border-b border-transparent text-inherit no-underline transition-colors duration-[160ms] ease-in-out hover:border-mark/40 hover:text-mark motion-reduce:transition-none"
-								href={resolve(`blog/${latestPost.slug}`)}>{latestPost.title}</a
+								href={latestWriting.href}
+								data-sveltekit-reload={latestWriting.kind === 'report' ? '' : undefined}
+								>{latestWriting.title}</a
 							>
 						</h3>
 						<p class="m-0 text-meta leading-[1.45] text-ink-muted">
-							<time datetime={latestPost.date}>{formatPostDate(latestPost.date)}</time>
+							{#if latestWriting.kind === 'report'}
+								<span>Report</span>
+								<span aria-hidden="true"> · </span>
+							{/if}
+							<time datetime={latestWriting.date}>{formatPostDate(latestWriting.date)}</time>
 						</p>
 					</header>
-					<p class="m-0 text-ink-muted">{latestPost.description}</p>
+					<p class="m-0 text-ink-muted">{latestWriting.description}</p>
 				</article>
 				<p class="m-0 mt-8">
 					<a
 						class="text-meta text-ink-muted no-underline transition-colors duration-[160ms] ease-in-out hover:text-mark motion-reduce:transition-none"
-						href={resolve('blog')}>All posts →</a
+						href={writingPath()}>All writing →</a
 					>
 				</p>
 			</section>
 		{/if}
 
-		{#if !latestPost}
+		{#if !latestWriting}
 			<section class="mt-[clamp(3.5rem,9vh,5.5rem)]" aria-labelledby="sec-more">
 				<h2 id="sec-more" class="mb-5 text-title font-normal tracking-[-0.02em]">More</h2>
 				<ul class="m-0 flex list-none flex-col gap-7 p-0">
 					<li>
-						<a class="group block text-inherit no-underline" href={resolve('blog')}>
+						<a class="group block text-inherit no-underline" href={writingPath()}>
 							<p
 								class="m-0 text-body font-medium tracking-[-0.01em] transition-colors duration-[160ms] ease-in-out group-hover:text-mark motion-reduce:transition-none"
 							>

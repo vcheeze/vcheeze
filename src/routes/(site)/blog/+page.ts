@@ -1,9 +1,9 @@
-import { getPosts } from '#lib/posts.js';
+import { getWriting } from '#lib/writing.js';
 
 export const prerender = true;
 
 export function load() {
 	return {
-		posts: getPosts()
+		writing: getWriting()
 	};
 }

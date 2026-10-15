@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { resolve } from '$app/paths';
 	import Seo from '#lib/components/Seo.svelte';
 	import SiteNav from '#lib/components/SiteNav.svelte';
 	import { formatPostDate } from '#lib/posts.js';
@@ -39,25 +38,30 @@
 	</header>
 
 	<main>
-		{#if data.posts.length === 0}
-			<p class="m-0 text-ink-muted">No posts yet.</p>
+		{#if data.writing.length === 0}
+			<p class="m-0 text-ink-muted">No writing yet.</p>
 		{:else}
 			<ul class="m-0 flex list-none flex-col gap-8 p-0">
-				{#each data.posts as post (post.slug)}
+				{#each data.writing as item (`${item.kind}-${item.slug}`)}
 					<li>
 						<article>
 							<header class="mb-1 flex items-baseline justify-between gap-x-4">
 								<h2 class="m-0 min-w-0 flex-1 text-body font-medium tracking-[-0.01em] text-pretty">
 									<a
 										class="border-b border-transparent text-inherit no-underline transition-colors duration-[160ms] ease-in-out hover:border-mark/40 hover:text-mark motion-reduce:transition-none"
-										href={resolve(`blog/${post.slug}`)}>{post.title}</a
+										href={item.href}
+										data-sveltekit-reload={item.kind === 'report' ? '' : undefined}>{item.title}</a
 									>
 								</h2>
 								<p class="m-0 shrink-0 text-meta leading-[1.45] text-ink-muted">
-									<time datetime={post.date}>{formatPostDate(post.date)}</time>
+									{#if item.kind === 'report'}
+										<span>Report</span>
+										<span aria-hidden="true"> · </span>
+									{/if}
+									<time datetime={item.date}>{formatPostDate(item.date)}</time>
 								</p>
 							</header>
-							<p class="m-0 text-ink-muted">{post.description}</p>
+							<p class="m-0 text-ink-muted">{item.description}</p>
 						</article>
 					</li>
 				{/each}

@@ -1,14 +1,14 @@
 <script lang="ts">
-	import { resolve } from '$app/paths';
+	import { homePath, workPath, writingPath } from '#lib/paths.js';
 
 	type Page = 'home' | 'work' | 'writing' | 'projects';
 
 	let { current }: { current: Page } = $props();
 
 	const items = [
-		{ id: 'home' as const, label: 'Home', href: resolve('/') },
-		{ id: 'work' as const, label: 'Work', href: resolve('work') },
-		{ id: 'writing' as const, label: 'Writing', href: resolve('blog') }
+		{ id: 'home' as const, label: 'Home', href: homePath() },
+		{ id: 'work' as const, label: 'Work', href: workPath() },
+		{ id: 'writing' as const, label: 'Writing', href: writingPath() }
 	];
 
 	const linkClass =
