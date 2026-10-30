@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { homePath, workPath, writingPath } from '#lib/paths.js';
 
-	type Page = 'home' | 'work' | 'writing' | 'projects';
+	type Page = 'home' | 'work' | 'writing' | 'projects' | 'wishlist';
 
 	let { current }: { current: Page } = $props();
 
